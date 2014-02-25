@@ -20,6 +20,12 @@ public class Barang {
 	restockPerHari = _restockPerHari;
     }
 
+    public Barang(char c) {
+	kode = c;
+	harga = 0;
+	restockPerHari = 0;
+    }
+
     // getter
     public char getKode() {
 	return kode;

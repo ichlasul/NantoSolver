@@ -147,4 +147,8 @@ public class Cewek extends Orang {
 	    return false;
 	return true;
     }
+
+    public void addPrerequisite(Barang barang) {
+	prerequisite.add(barang);
+    }
 }

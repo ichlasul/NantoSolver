@@ -1,10 +1,15 @@
 package itb.ai.tubes1.boundary;
 
 import itb.ai.tubes1.entity.Barang;
+import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Cewek;
+import itb.ai.tubes1.entity.Gymnasium;
+import itb.ai.tubes1.entity.Jadwal;
 import itb.ai.tubes1.entity.ListOfBarang;
 import itb.ai.tubes1.entity.ListOfCewek;
+import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
+import itb.ai.tubes1.entity.University;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -23,6 +28,11 @@ public class Input {
     Nanto nanto;
     ListOfCewek listCewek;
     ListOfBarang listBarang;
+    
+    Mall mall;
+    Gymnasium gymnasium;
+    Cafe cafe;
+    University university;
 
     public Input(String umum, String kandidat, String tempat) {
 	fileUmum = umum;
@@ -35,6 +45,11 @@ public class Input {
 	nanto = new Nanto();
 	listCewek = new ListOfCewek();
 	listBarang = new ListOfBarang();
+	
+	mall = new Mall();
+	gymnasium = new Gymnasium();
+	cafe = new Cafe();
+	university = new University();
     }
 
     public Nanto getNanto() {
@@ -59,11 +74,13 @@ public class Input {
 	Scanner s = null;
 	Cewek c = null;
 	Barang b = null;
+	String buf = null;
 
 	try {
 	    s = new Scanner(new BufferedReader(new FileReader(fileUmum)));
 
 	    nanto.setUang(s.nextInt());
+	    Jadwal.JUMLAH_MINGGU = s.nextInt();
 	    nanto.setEnergiPerHari(s.nextInt());
 	    nanto.setStrength(s.nextInt());
 	    nanto.setCharm(s.nextInt());
@@ -79,6 +96,12 @@ public class Input {
 		c.setEnergiPerJam(s.nextInt());
 		c.setMaksimalJamPerHari(s.nextInt());
 		// c.setPrerequisite(s.next());
+		buf = s.next();
+		for (char kode: buf.toCharArray()) {
+		    if (kode != '-') {
+			c.addPrerequisite(new Barang(kode));
+		    }
+		}
 		c.setStrength(s.nextInt());
 		c.setCharm(s.nextInt());
 		c.setBrain(s.nextInt());
@@ -97,7 +120,7 @@ public class Input {
 
 		listBarang.addBarang(b);
 	    }
-
+	    
 	} catch (FileNotFoundException e) {
 	    System.out.println("File " + fileUmum + " tidak ditemukan");
 	} finally {
@@ -110,7 +133,6 @@ public class Input {
     private void readKandidat() {
 	Scanner s = null;
 	String buf = null;
-	int j;
 	Cewek c;
 
 	try {
@@ -119,12 +141,13 @@ public class Input {
 	    for (int i = 0; i < nKandidat; i++) {
 		buf = s.nextLine();
 
-		j = 0;
-		c = listCewek.listOfCewek.remove(i);
-		while (buf.isEmpty()) {
-		    //c.addJadwal(buf.charAt(j) == '1');
+		c = listCewek.listOfCewek.get(i);
+		Jadwal j = new Jadwal();
+		for (char avail: buf.toCharArray()) {
+		    j.add(avail == '1');
 		}
-		listCewek.listOfCewek.add(i, c);
+		c.setJadwal(j);
+		listCewek.listOfCewek.set(i, c);
 	    }
 
 	} catch (FileNotFoundException e) {
@@ -139,23 +162,39 @@ public class Input {
     private void readTempat() {
 	Scanner s = null;
 	String buf = null;
-	int j;
-	Barang b;
+	Jadwal j;
 
 	try {
 	    s = new Scanner(new BufferedReader(new FileReader(fileTempat)));
 
-	    for (int i = 0; i < listBarang.listOfBarang.size(); i++) {
-		buf = s.nextLine();
-
-		j = 0;
-		b = listBarang.listOfBarang.remove(i);
-		while (buf.isEmpty()) {
-		 //   b.addJadwal(buf.charAt(j) == '1');
-		}
-		listBarang.listOfBarang.add(i, b);
+	    buf = s.nextLine();
+	    j = new Jadwal();
+	    for (char avail: buf.toCharArray()) {
+        	j.add(avail == '1');
 	    }
-
+	    mall.setJadwal(j);
+	    
+	    buf = s.nextLine();
+	    j = new Jadwal();
+	    for (char avail: buf.toCharArray()) {
+        	j.add(avail == '1');
+	    }
+	    gymnasium.setJadwal(j);
+	    
+	    buf = s.nextLine();
+	    j = new Jadwal();
+	    for (char avail: buf.toCharArray()) {
+        	j.add(avail == '1');
+	    }
+	    cafe.setJadwal(j);
+	    
+	    buf = s.nextLine();
+	    j = new Jadwal();
+	    for (char avail: buf.toCharArray()) {
+        	j.add(avail == '1');
+	    }
+	    university.setJadwal(j);
+ 
 	} catch (FileNotFoundException e) {
 	    System.out.println("File " + fileTempat + " tidak ditemukan");
 	} finally {
