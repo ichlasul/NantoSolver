@@ -100,11 +100,18 @@ public class Cewek extends Orang {
 		jadwal.add(avalaible);
 	}
 	
+	
 	// DEBUG
 	public void printInfo() {
 		System.out.println("Enlightment per jam = " + this.enlightmentPerJam + "\nEnergi per jam = " + this.energiPerJam +
 				"\nStrength = " + this.strength + "\nCharm = " + this.charm +
 				"\nBrain = " + this.brain + "\nMaksimal jam per hari = " + this.maksimalJamPerHari +
 				"\nPrerequisite = " + this.prerequisite );		
+	}
+	
+	public void printJadwal(){
+		for(int i =0;i<this.jadwal.size();i++){
+			System.out.println(this.jadwal.get(i));
+		}
 	}
 }

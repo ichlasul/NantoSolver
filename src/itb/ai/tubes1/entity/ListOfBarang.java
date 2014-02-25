@@ -26,6 +26,10 @@ public class ListOfBarang {
 		jumlahBarang++;
 	}
 	
+	public int getJumlahBarang(){
+		return this.jumlahBarang;
+	}
+	
 	// DEBUG
 	public void printInfo()
 	{

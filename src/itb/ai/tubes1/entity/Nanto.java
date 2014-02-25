@@ -176,6 +176,22 @@ public class Nanto extends Orang {
 		return true;
 	}
 	
+	public boolean isEnoughCharm(int c){
+		return this.charm >= c;
+	}
+	
+	public boolean isEnoughStrent(int s){
+		return this.strength >= s;
+	}
+	
+	public boolean isEnoughBrain(int b){
+		return this.brain >= b;
+	}
+	
+	public boolean isEnoughEnergi(int e){
+		return this.currentEnergi <= e;
+	}
+	
 	// DEBUG
 	public void printInfo()
 	{

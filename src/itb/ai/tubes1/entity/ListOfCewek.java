@@ -26,6 +26,10 @@ public class ListOfCewek {
 		jumlahCewek++;
 	}
 	
+	public int getJumlahCewek(){
+		return this.jumlahCewek;
+	}
+	
 	// DEBUG
 	public void printInfo()
 	{
