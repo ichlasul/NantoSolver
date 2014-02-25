@@ -1,60 +1,59 @@
 package com.AndrewHanes.ga;
 
 /**
- * Created with IntelliJ IDEA.
- * User: Andrew Hanes
- * Date: 6/18/13
- * Time: 6:46 PM
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: Andrew Hanes Date: 6/18/13 Time: 6:46 PM To
+ * change this template use File | Settings | File Templates.
  */
 public class FitnessCalculator {
-    private static byte[] solution;
-    public void setSolution(byte[] b) {
-        this.solution = b;
-    }
+  private static byte[] solution;
 
-    static public void setSolution(String str) {
-        solution = new byte[str.length()];
-        for(int i = 0; i < str.length(); ++i) {
-            char c = str.charAt(i);
-            if(c == '0' || c == '1') {
-                solution[i] = Byte.parseByte(c + "");
-            }
-            else {
-                solution[i] = 0;
-            }
-        }
-    }
+  public void setSolution(final byte[] b) {
+    FitnessCalculator.solution = b;
+  }
 
-    public static int getFitness(Individual i) {
-        int fitness = 0;
-        for(int n = 0; n < solution.length; ++n) {
-            if(i.getGene(n) == solution[n]) {
-                ++fitness;
-            }
-        }
-        return fitness;
+  static public void setSolution(final String str) {
+    FitnessCalculator.solution = new byte[str.length()];
+    for (int i = 0; i < str.length(); ++i) {
+      final char c = str.charAt(i);
+      if ((c == '0') || (c == '1')) {
+        FitnessCalculator.solution[i] = Byte.parseByte(c + "");
+      } else {
+        FitnessCalculator.solution[i] = 0;
+      }
     }
+  }
 
-    public static int getMaxFitness() {
-        return solution.length;
+  public static int getFitness(final Individual i) {
+    int fitness = 0;
+    for (int n = 0; n < FitnessCalculator.solution.length; ++n) {
+      if (i.getGene(n) == FitnessCalculator.solution[n]) {
+        ++fitness;
+      }
     }
+    return fitness;
+  }
 
-    public static byte[] getSolution() {
-        return solution;
+  public static int getMaxFitness() {
+    return FitnessCalculator.solution.length;
+  }
+
+  public static byte[] getSolution() {
+    return FitnessCalculator.solution;
+  }
+
+  public static void main(final String[] args) {
+    final FitnessCalculator c = new FitnessCalculator();
+    FitnessCalculator.setSolution("1");
+    Population p = new Population(50);
+
+    int genCount = 0;
+    while (p.getFittest().getFitness() < FitnessCalculator.getMaxFitness()) {
+      genCount++;
+      System.out.printf("Generation: %d\tFitness: %d\n", genCount, p
+          .getFittest().getFitness());
+      p = Evolver.evolvePopulation(p);
     }
-
-    public static void main(String[] args) {
-        FitnessCalculator c = new FitnessCalculator();
-        c.setSolution("1");
-        Population p = new Population(50);
-
-        int genCount = 0;
-        while(p.getFittest().getFitness() < c.getMaxFitness()) {
-            genCount++;
-            System.out.printf("Generation: %d\tFitness: %d\n", genCount, p.getFittest().getFitness());
-            p = Evolver.evolvePopulation(p);
-        }
-        System.out.printf("Solution Found\nGeneration: %d\nGenes: %d\n", genCount, p.getFittest().getFitness());
-    }
+    System.out.printf("Solution Found\nGeneration: %d\nGenes: %d\n", genCount,
+        p.getFittest().getFitness());
+  }
 }
