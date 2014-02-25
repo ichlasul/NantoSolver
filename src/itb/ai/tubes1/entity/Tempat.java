@@ -1,48 +1,39 @@
 package itb.ai.tubes1.entity;
 
 public class Tempat {
-    // atribut
-    private String nama;
-    private int jumlahAtribut;
-    private int jumlahEnergi;
+
+    private int energiBerkurang;
+    
+    private Jadwal jadwal;
 
     // ctor
     public Tempat() {
-	nama = "";
-	jumlahAtribut = 0;
-	jumlahEnergi = 0;
+	energiBerkurang = 0;
     }
 
-    public Tempat(String _nama, int _jumlahAtribut, int _jumlahEnergi) {
-	nama = _nama;
-	jumlahAtribut = _jumlahAtribut;
-	jumlahEnergi = _jumlahEnergi;
+    public Tempat(int _jumlahEnergi) {
+	energiBerkurang = _jumlahEnergi;
     }
 
-    // getter
-    public String getNama() {
-	return nama;
+    public int getEnergi() {
+	return energiBerkurang;
+    }
+    public void setEnergi(int _jumlahEnergi) {
+	energiBerkurang = _jumlahEnergi;
+    }
+    
+    /**
+     * @return the jadwal
+     */
+    public Jadwal getJadwal() {
+        return jadwal;
     }
 
-    public int getJumlahAtribut() {
-	return jumlahAtribut;
-    }
-
-    public int getJumlahEnergi() {
-	return jumlahEnergi;
-    }
-
-    // setter
-    public void setNama(String _nama) {
-	nama = _nama;
-    }
-
-    public void setJumlahAtribut(int _jumlahAtribut) {
-	jumlahAtribut = _jumlahAtribut;
-    }
-
-    public void setJumlahEnergi(int _jumlahEnergi) {
-	jumlahEnergi = _jumlahEnergi;
+    /**
+     * @param jadwal the jadwal to set
+     */
+    public void setJadwal(Jadwal jadwal) {
+        this.jadwal = jadwal;
     }
 
 }
