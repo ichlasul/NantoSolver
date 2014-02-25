@@ -122,7 +122,7 @@ public class Input {
 		j = 0;
 		c = listCewek.listOfCewek.remove(i);
 		while (buf.isEmpty()) {
-		    c.addJadwal(buf.charAt(j) == '1');
+		    //c.addJadwal(buf.charAt(j) == '1');
 		}
 		listCewek.listOfCewek.add(i, c);
 	    }

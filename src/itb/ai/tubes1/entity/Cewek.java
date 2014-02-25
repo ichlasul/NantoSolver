@@ -17,7 +17,7 @@ public class Cewek extends Orang {
 
     private ArrayList<Barang> prerequisite;
 
-    private ArrayList<Boolean> jadwal;
+    private Jadwal jadwal;
 
     // Konstruktor
     public Cewek() {
@@ -26,7 +26,7 @@ public class Cewek extends Orang {
 	this.energiPerJam = 0;
 	this.maksimalJamPerHari = 0;
 	this.prerequisite = new ArrayList<>();
-	jadwal = new ArrayList<>();
+	jadwal = new Jadwal();
     }
 
     // Override
@@ -38,7 +38,7 @@ public class Cewek extends Orang {
 	this.energiPerJam = energiPerJam;
 	this.maksimalJamPerHari = maksimalJamPerHari;
 	this.prerequisite = new ArrayList<>();
-	jadwal = new ArrayList<>();
+	jadwal = new Jadwal();
     }
 
     // Getter dan setter
@@ -75,10 +75,31 @@ public class Cewek extends Orang {
     }
 
     /**
-     * Menambahkan jadwal
+     * @return the nomor
      */
-    public void addJadwal(boolean avalaible) {
-	jadwal.add(avalaible);
+    public int getNomor() {
+        return nomor;
+    }
+
+    /**
+     * @param nomor the nomor to set
+     */
+    public void setNomor(int nomor) {
+        this.nomor = nomor;
+    }
+
+    /**
+     * @return the jadwal
+     */
+    public Jadwal getJadwal() {
+        return jadwal;
+    }
+
+    /**
+     * @param jadwal the jadwal to set
+     */
+    public void setJadwal(Jadwal jadwal) {
+        this.jadwal = jadwal;
     }
 
     // DEBUG
@@ -92,7 +113,7 @@ public class Cewek extends Orang {
     }
 
     public void printJadwal() {
-	for (Boolean available : jadwal) {
+	for (Boolean available : jadwal.getList()) {
 	    if (available) {
 		System.out.print(1);
 	    } else {
