@@ -55,15 +55,6 @@ public class Nanto extends Orang {
 	this.currentEnergi = this.energiPerHari;
     }
 
-    // Override versi 3
-    public Nanto(int uang, int waktu, int energiPerHari, int strength,
-	    int charm, int brain, int jumlahKandidat, BarangnyaNanto barangNanto) {
-	super(strength, charm, brain);
-	this.uang = uang;
-	this.energiPerHari = energiPerHari;
-	this.currentEnergi = this.energiPerHari;
-    }
-
     // Getter dan setter
     public int getUang() {
 	return uang;
