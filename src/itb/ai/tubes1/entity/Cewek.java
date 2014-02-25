@@ -2,18 +2,15 @@ package itb.ai.tubes1.entity;
 
 import java.util.ArrayList;
 
-// 19 Februari 2014
 
-public class Cewek {
+public class Cewek extends Orang {
 	
-	// Atribut cewek	
-	int enlightmentPerJam;
-	int energiPerJam;
-	int maksimalJamPerHari;
-	String prerequisite;
-	int strength;
-	int charm;
-	int brain;
+	// Atribut cewek
+	private int nomor;
+	private int enlightmentPerJam;
+	private int energiPerJam;
+	private int maksimalJamPerHari;
+	private String prerequisite;
 	
 	private ArrayList<Boolean> jadwal;
 	

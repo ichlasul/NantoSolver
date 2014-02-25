@@ -1,16 +1,10 @@
 package itb.ai.tubes1.entity;
 
-public class Nanto {
+public class Nanto extends Orang {
 	
 	private int uang;
 	
 	private ListOfBarang listBarang; // Pake ini aja gitu?
-	
-	private int strength;
-	
-	private int charm;
-	
-	private int brain;
 	
 	private int energiPerHari; // Naksimal energi yang bisa dimiliki Nanto. Nilainya tetap
 	
