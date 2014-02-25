@@ -78,7 +78,7 @@ public class Input {
             	c.setEnlightmentPerJam(s.nextInt());
             	c.setEnergiPerJam(s.nextInt());
             	c.setMaksimalJamPerHari(s.nextInt());
-            	c.setPrerequisite(s.next());
+            	//c.setPrerequisite(s.next());
             	c.setStrength(s.nextInt());
             	c.setCharm(s.nextInt());
             	c.setBrain(s.nextInt());

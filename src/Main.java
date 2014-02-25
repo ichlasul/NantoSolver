@@ -60,7 +60,7 @@ public class Main {
 		
 		//nanto1.setBarangnyaNanto(bn2);
 		//nanto2.setBarangnyaNanto(bn1);
-		System.out.println(nanto1.isPrerequisiteLengkap(cewek2.getPrerequisite()) + "");
-		System.out.println(nanto2.isPrerequisiteLengkap(cewek2.getPrerequisite()) + "");
+		System.out.println(nanto1.isPrerequisiteLengkap(cewek2) + "");
+		System.out.println(nanto2.isPrerequisiteLengkap(cewek2) + "");
 	}
 }
