@@ -151,7 +151,7 @@ public class Input {
 		j = 0;
 		b = listBarang.listOfBarang.remove(i);
 		while (buf.isEmpty()) {
-		    b.addJadwal(buf.charAt(j) == '1');
+		 //   b.addJadwal(buf.charAt(j) == '1');
 		}
 		listBarang.listOfBarang.add(i, b);
 	    }

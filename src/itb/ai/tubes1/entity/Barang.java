@@ -9,15 +9,12 @@ public class Barang {
     private int harga;
     private int restockPerHari;
 
-    private ArrayList<Boolean> jadwal;
-
     // ctor
     public Barang() {
 	nama = "";
 	kode = 'A';
 	harga = 0;
 	restockPerHari = 0;
-	jadwal = new ArrayList<>();
     }
 
     public Barang(String _nama, char _kode, int _harga, int _restockPerHari) {
@@ -25,7 +22,6 @@ public class Barang {
 	kode = _kode;
 	harga = _harga;
 	restockPerHari = _restockPerHari;
-	jadwal = new ArrayList<>();
     }
 
     // getter
@@ -61,9 +57,4 @@ public class Barang {
     public void setRestockPerHari(int _restockPerHari) {
 	restockPerHari = _restockPerHari;
     }
-
-    public void addJadwal(boolean open) {
-	jadwal.add(open);
-    }
-
 }
