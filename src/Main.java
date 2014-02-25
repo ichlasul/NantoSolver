@@ -1,9 +1,11 @@
-import boundary.Input;
-import entity.BarangnyaNanto;
-import entity.Cewek;
-import entity.ListOfBarang;
-import entity.ListOfCewek;
-import entity.Nanto;
+import itb.ai.tubes1.boundary.Input;
+import itb.ai.tubes1.entity.BarangnyaNanto;
+import itb.ai.tubes1.entity.Cewek;
+import itb.ai.tubes1.entity.ListOfBarang;
+import itb.ai.tubes1.entity.ListOfCewek;
+import itb.ai.tubes1.entity.Nanto;
+
+
 
 public class Main {
 	public static void main(String[] args)
