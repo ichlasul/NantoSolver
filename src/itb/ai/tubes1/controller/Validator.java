@@ -9,6 +9,51 @@ public class Validator {
 
     public static ListOfCewek loc = null;
 
+    public static Input input = null;
+
+    public static boolean isValid(String jadwal) {
+    	boolean valid = true;
+    	//list jumlah pembelian setiap barang
+    	//list jumlah jam bertemu dgn setiap kandidat
+
+    	for (int i = 0; i < jadwal.length(); i++) {
+    		act = jadwal.charAt(i);
+
+    		if (i % 12 == 0) { 		//nanto baru saja tidur
+    			//set energi nanto seperti default 
+    		}
+
+    		//cek energi nanto
+			if (input.getNanto().getCurrentEnergi() <= 0) {
+				return false;
+			}
+
+    		if (act != '0') { 		//nanto beraktivitas
+    			if (Character.isDigit(act)) { 		//bertemu cewek
+
+    			} 
+    			else if (Character.isLowerCase(act)) { 		//pergi ke suatu tempat
+    				switch (act) {
+    					case 'u' :	//cek dijadwal buka atau ga
+    								//jika buka, pergi ke tempat itu
+
+    					case 'g' : 
+    					case 'c' : 
+    					case 'm' : 
+    					default : 
+    				}
+    			} 
+    			else if (Character.isUpperCase(act)) { 		//membeli barang
+
+    			}  
+
+    			
+    		}
+    		
+    	}
+
+    }
+
     public static int funcEnlightment(String stringValid) {
 	int en = 0;
 	char tempchar;
