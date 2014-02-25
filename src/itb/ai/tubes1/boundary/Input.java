@@ -64,7 +64,6 @@ public class Input {
             s = new Scanner(new BufferedReader(new FileReader(fileUmum)));
             
             nanto.setUang(s.nextInt());
-            nanto.setWaktu(s.nextInt());
             nanto.setEnergiPerHari(s.nextInt());
             nanto.setStrength(s.nextInt());
             nanto.setCharm(s.nextInt());

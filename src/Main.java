@@ -58,8 +58,8 @@ public class Main {
 		bn2.subCokelat(10); bn2.subBunga(10); bn2.subMartabakManis(10); bn2.subPermen(10);
 		bn2.printInfo(); System.out.println(); System.out.println();
 		
-		nanto1.setBarangnyaNanto(bn2);
-		nanto2.setBarangnyaNanto(bn1);
+		//nanto1.setBarangnyaNanto(bn2);
+		//nanto2.setBarangnyaNanto(bn1);
 		System.out.println(nanto1.isPrerequisiteLengkap(cewek2.getPrerequisite()) + "");
 		System.out.println(nanto2.isPrerequisiteLengkap(cewek2.getPrerequisite()) + "");
 	}
