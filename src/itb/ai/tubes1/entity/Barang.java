@@ -9,24 +9,18 @@ public class Barang {
 
     // ctor
     public Barang() {
-	nama = "";
 	kode = 'A';
 	harga = 0;
 	restockPerHari = 0;
     }
 
-    public Barang(String _nama, char _kode, int _harga, int _restockPerHari) {
-	nama = _nama;
+    public Barang(char _kode, int _harga, int _restockPerHari) {
 	kode = _kode;
 	harga = _harga;
 	restockPerHari = _restockPerHari;
     }
 
     // getter
-    public String getNama() {
-	return nama;
-    }
-
     public char getKode() {
 	return kode;
     }
@@ -40,10 +34,6 @@ public class Barang {
     }
 
     // setter
-    public void setNama(String _nama) {
-	nama = _nama;
-    }
-
     public void setKode(char _kode) {
 	kode = _kode;
     }
