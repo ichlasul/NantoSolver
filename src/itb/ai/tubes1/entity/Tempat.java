@@ -4,7 +4,7 @@ public class Tempat {
 
     private int energiBerkurang;
     
-    private Jadwal jadwal;
+    protected Jadwal jadwal;
 
     // ctor
     public Tempat() {

@@ -1,7 +1,5 @@
 package itb.ai.tubes1.entity;
 
-import java.util.ArrayList;
-
 public class Barang {
     // atribut
     private String nama;
