@@ -31,4 +31,30 @@ public class Orang {
 	this.charm = charm;
 	this.brain = brain;
     }
+    
+
+
+    public int getStrength() {
+	return strength;
+    }
+
+    public void setStrength(int strength) {
+	this.strength = strength;
+    }
+
+    public int getCharm() {
+	return charm;
+    }
+
+    public void setCharm(int charm) {
+	this.charm = charm;
+    }
+
+    public int getBrain() {
+	return brain;
+    }
+
+    public void setBrain(int brain) {
+	this.brain = brain;
+    }
 }

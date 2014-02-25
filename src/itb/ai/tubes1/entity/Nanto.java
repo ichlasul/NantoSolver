@@ -88,31 +88,7 @@ public class Nanto extends Orang {
     public void setCurrentEnergi(int currentEnergi) {
 	this.currentEnergi = currentEnergi;
     }
-
-    public int getStrength() {
-	return strength;
-    }
-
-    public void setStrength(int strength) {
-	this.strength = strength;
-    }
-
-    public int getCharm() {
-	return charm;
-    }
-
-    public void setCharm(int charm) {
-	this.charm = charm;
-    }
-
-    public int getBrain() {
-	return brain;
-    }
-
-    public void setBrain(int brain) {
-	this.brain = brain;
-    }
-
+    
     // Operasi terhadap nilai atribut
     public void addUang(int uang) {
 	this.uang += uang;
@@ -173,20 +149,20 @@ public class Nanto extends Orang {
 	return true;
     }
 
-    public boolean isEnoughCharm(int c) {
-	return this.charm >= c;
+    public boolean isEnoughCharm(Cewek cewek) {
+	return this.charm >= cewek.charm;
     }
 
-    public boolean isEnoughStrent(int s) {
-	return this.strength >= s;
+    public boolean isEnoughStrent(Cewek cewek) {
+	return this.strength >= cewek.strength;
     }
 
-    public boolean isEnoughBrain(int b) {
-	return this.brain >= b;
+    public boolean isEnoughBrain(Cewek cewek) {
+	return this.brain >= cewek.brain;
     }
 
-    public boolean isEnoughEnergi(int e) {
-	return this.currentEnergi <= e;
+    public boolean isEnoughEnergi(Cewek cewek) {
+	return this.currentEnergi <= cewek.getEnergiPerJam();
     }
 
     // DEBUG
