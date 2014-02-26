@@ -31,8 +31,8 @@ public class Main {
 	listCewek = input.getListCewek();
 	mall = input.getMall();
 	gym = input.getGymnasium();
-	input.getCafe();
-	input.getUniversity();
+	cafe = input.getCafe();
+	univ = input.getUniversity();
 	
 	
 	Validator.input = input;
