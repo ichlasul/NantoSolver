@@ -5,7 +5,6 @@ import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Gymnasium;
 import itb.ai.tubes1.entity.Jadwal;
-import itb.ai.tubes1.entity.ListOfBarang;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
@@ -14,6 +13,7 @@ import itb.ai.tubes1.entity.University;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
@@ -27,7 +27,7 @@ public class Input {
 
     private Nanto nanto;
     private ListOfCewek listCewek;
-    private ListOfBarang listBarang;
+    private ArrayList<Barang> listBarang;
     
     private Mall mall;
     private Gymnasium gymnasium;
@@ -44,7 +44,7 @@ public class Input {
 
 	nanto = new Nanto();
 	listCewek = new ListOfCewek();
-	listBarang = new ListOfBarang();
+	listBarang = new ArrayList<Barang>();
 	
 	mall = new Mall();
 	gymnasium = new Gymnasium();
@@ -60,7 +60,7 @@ public class Input {
 	return listCewek;
     }
 
-    public ListOfBarang getListBarang() {
+    public ArrayList<Barang> getListBarang() {
 	return listBarang;
     }
 
@@ -160,7 +160,7 @@ public class Input {
 		b.setHarga(s.nextInt());
 		b.setRestockPerHari(s.nextInt());
 
-		listBarang.addBarang(b);
+		listBarang.add(b);
 	    }
 	    
 	} catch (FileNotFoundException e) {
