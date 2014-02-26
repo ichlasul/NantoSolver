@@ -17,9 +17,11 @@ public class Solution implements Chromosome<Solution> {
 	 */
 	@Override
 	public Solution mutate() {
-		String temp = data;
-		// TODO Auto-generated method stub
-		return null;
+	    Solution result = this;
+	    
+	    //result.data
+	    
+	    return result;
 	}
 
 	/**
