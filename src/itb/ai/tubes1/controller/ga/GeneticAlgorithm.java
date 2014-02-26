@@ -43,7 +43,7 @@ public class GeneticAlgorithm<C extends Chromosome<C>, T extends Comparable<T>> 
     private Population<C> population;
 
     // listeners of genetic algorithm iterations (handle callback afterwards)
-    private final List<IterartionListener<C, T>> iterationListeners = new LinkedList<IterartionListener<C, T>>();
+    private final List<IterationListener<C, T>> iterationListeners = new LinkedList<IterationListener<C, T>>();
 
     private boolean terminate = false;
 
@@ -98,7 +98,7 @@ public class GeneticAlgorithm<C extends Chromosome<C>, T extends Comparable<T>> 
 	    }
 	    this.evolve();
 	    this.iteration = i;
-	    for (IterartionListener<C, T> l : this.iterationListeners) {
+	    for (IterationListener<C, T> l : this.iterationListeners) {
 		l.update(this);
 	    }
 	}
@@ -133,11 +133,11 @@ public class GeneticAlgorithm<C extends Chromosome<C>, T extends Comparable<T>> 
 	return this.parentChromosomesSurviveCount;
     }
 
-    public void addIterationListener(IterartionListener<C, T> listener) {
+    public void addIterationListener(IterationListener<C, T> listener) {
 	this.iterationListeners.add(listener);
     }
 
-    public void removeIterationListener(IterartionListener<C, T> listener) {
+    public void removeIterationListener(IterationListener<C, T> listener) {
 	this.iterationListeners.remove(listener);
     }
 
