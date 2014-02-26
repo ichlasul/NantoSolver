@@ -26,7 +26,7 @@ public class Input {
     private int nBarang;
 
     private Nanto nanto;
-    private ListOfCewek listCewek;
+    private ArrayList<Cewek> listCewek;
     private ArrayList<Barang> listBarang;
     
     private Mall mall;
@@ -43,7 +43,7 @@ public class Input {
 	nBarang = 0;
 
 	nanto = new Nanto();
-	listCewek = new ListOfCewek();
+	listCewek = new ArrayList<Cewek>();
 	listBarang = new ArrayList<Barang>();
 	
 	mall = new Mall();
@@ -56,7 +56,7 @@ public class Input {
 	return nanto;
     }
 
-    public ListOfCewek getListCewek() {
+    public ArrayList<Cewek> getListCewek() {
 	return listCewek;
     }
 
@@ -148,7 +148,7 @@ public class Input {
 		c.setCharm(s.nextInt());
 		c.setBrain(s.nextInt());
 
-		listCewek.addCewek(c);
+		listCewek.add(c);
 	    }
 
 	    nBarang = s.nextInt();
@@ -183,13 +183,13 @@ public class Input {
 	    for (int i = 0; i < nKandidat; i++) {
 		buf = s.nextLine();
 
-		c = listCewek.listOfCewek.get(i);
+		c = listCewek.get(i);
 		Jadwal j = new Jadwal();
 		for (char avail: buf.toCharArray()) {
 		    j.add(avail == '1');
 		}
 		c.setJadwal(j);
-		listCewek.listOfCewek.set(i, c);
+		listCewek.set(i, c);
 	    }
 
 	} catch (FileNotFoundException e) {

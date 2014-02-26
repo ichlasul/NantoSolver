@@ -3,9 +3,14 @@ import java.util.ArrayList;
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.controller.Validator;
 import itb.ai.tubes1.entity.Barang;
+import itb.ai.tubes1.entity.Cafe;
+import itb.ai.tubes1.entity.Cewek;
+import itb.ai.tubes1.entity.Gymnasium;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.ListOfOutput;
+import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
+import itb.ai.tubes1.entity.University;
 
 public class Main {
 
@@ -17,6 +22,18 @@ public class Main {
     static int waktu = 2;
 
     public static void main(String[] args) {
+	Input input = new Input("txt/umum.txt", "txt/kandidat.txt", "txt/tempat.txt");
+	input.readFile();
+	Nanto nanto = input.getNanto();
+	ArrayList<Barang> listBarang = input.getListBarang();
+	ArrayList<Cewek> listCewek = input.getListCewek();
+	Mall mall = input.getMall();
+	Gymnasium gym = input.getGymnasium();
+	Cafe cafe = input.getCafe();
+	University univ = input.getUniversity();
+    }
+
+    private static void testcase() {
 	String output = "";
 	Validator.loc = loc;
 	// testcase1();
@@ -40,18 +57,13 @@ public class Main {
 
     private static void testcaseinput() {
 	Nanto nanto = null;
-	ListOfCewek loc = null;
 
-	Input input = new Input("txt/umum.txt", "txt/kandidat.txt",
-		"txt/tempat.txt");
+	Input input = new Input("txt/umum.txt", "txt/kandidat.txt", "txt/tempat.txt");
 
 	input.readFile();
 
 	nanto = input.getNanto();
 	nanto.printInfo();
-
-	loc = input.getListCewek();
-	loc.printInfo();
 
     }
 }
