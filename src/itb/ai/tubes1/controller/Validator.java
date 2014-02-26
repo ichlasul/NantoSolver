@@ -28,7 +28,7 @@ public class Validator {
         
         ArrayList<Integer> pertemuanCewek = new ArrayList<>(); //list jumlah jam bertemu setiap cewek
         //inisialisasi list jumlah jam bertemu dgn setiap kandidat
-        for (int j=0; j < input.getListCewek().getJumlahCewek(); j++) {
+        for (int j=0; j < input.getListCewek().size(); j++) {
             pertemuanCewek.add(j, 0);
         }
         
@@ -42,6 +42,9 @@ public class Validator {
                         for (int j=0; j < input.getListBarang().size(); j++) { // mengembalikan jumlah pembelian barang jadi 0
                             pembelianBarang.add(j, 0);
                         }
+                        for (int j = 0; j < input.getListCewek().size(); j++) { //mengembalikan seperti semula
+                            pertemuanCewek.add(j, 0);
+                        }
     		}
 
     		//cek energi nanto
@@ -52,13 +55,13 @@ public class Validator {
     		if (act != '0') { 		//nanto beraktivitas
     			if (Character.isDigit(act)) { 		//bertemu cewek
                             int idxcewek = 0;
-                            for (int j = 0; j < input.getListCewek().getJumlahCewek(); j++) {
-                                if (input.getListCewek().getListOfCewek().get(j).getNomor() == Character.getNumericValue(act)) {
+                            for (int j = 0; j < input.getListCewek().size(); j++) {
+                                if (input.getListCewek().get(j).getNomor() == Character.getNumericValue(act)) {
                                     idxcewek = j;
                                 }
                             }
                             
-                            Cewek cewek = input.getListCewek().getListOfCewek().get(idxcewek);
+                            Cewek cewek = input.getListCewek().get(idxcewek);
                             Nanto nanto = input.getNanto();
                             int nbKetemu = pertemuanCewek.get(idxcewek);
                             int maxKetemu = cewek.getMaksimalJamPerHari();
