@@ -27,4 +27,13 @@ public class Cafe extends Tempat {
     public void setCharm(int charm) {
         this.charm = charm;
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Cafe [Charm=" + charm + ", EnergiBerkurang=" + energiBerkurang
+		+ ", Jadwal=" + jadwal + "]";
+    }
 }

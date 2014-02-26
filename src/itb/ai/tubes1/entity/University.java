@@ -28,4 +28,13 @@ public class University extends Tempat {
         this.brain = brain;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "University [Brain=" + brain + ", EnergiBerkurang="
+		+ energiBerkurang + ",Jadwal=" + jadwal + "]";
+    }
+
 }

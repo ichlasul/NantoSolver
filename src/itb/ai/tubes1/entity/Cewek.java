@@ -151,4 +151,17 @@ public class Cewek extends Orang {
     public void addPrerequisite(Barang barang) {
 	prerequisite.add(barang);
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Cewek [Nomor=" + nomor + ", EnlightmentPerJam="
+		+ enlightmentPerJam + ", EnergiPerJam=" + energiPerJam
+		+ ", MaksimalJamPerHari=" + maksimalJamPerHari
+		+ ", Prerequisite=" + prerequisite + ", Jadwal=" + jadwal
+		+ ", Strength=" + strength + ", Charm=" + charm + ", Brain="
+		+ brain + "]";
+    }
 }

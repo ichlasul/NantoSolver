@@ -34,4 +34,19 @@ public class Jadwal {
 	data.add(available);
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	String buf = "";
+	for (Boolean bol: data) {
+	    if (bol) {
+		buf.concat("1");
+	    } else {
+		buf.concat("0");
+	    }
+	}
+	return "Jadwal [data=" + buf + "]";
+    }
 }

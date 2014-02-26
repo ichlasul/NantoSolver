@@ -5,7 +5,6 @@ import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Gymnasium;
 import itb.ai.tubes1.entity.Jadwal;
-import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
 import itb.ai.tubes1.entity.University;
