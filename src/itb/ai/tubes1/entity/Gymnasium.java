@@ -27,4 +27,13 @@ public class Gymnasium extends Tempat {
     public void setStrength(int strength) {
         this.strength = strength;
     }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Gymnasium [Strength=" + strength + ", EnergiBerkurang="
+		+ energiBerkurang + ", Jadwal=" + jadwal + "]";
+    }
 }
