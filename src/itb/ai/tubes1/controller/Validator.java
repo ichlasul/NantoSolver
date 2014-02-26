@@ -18,6 +18,7 @@ public class Validator {
 	private static char act;
 
     public static boolean isValid(String jadwal) {
+        Nanto nanto = input.getNanto(); 
     	boolean valid = true;
     	
         ArrayList<Integer> pembelianBarang = new ArrayList<>(); //list jumlah pembelian setiap barang
@@ -38,7 +39,7 @@ public class Validator {
                 act = jadwal.charAt(i);
 
     		if (i % 12 == 0) { 		//ganti hari
-    			input.getNanto().resetEnergi();  //mengembalikan energi nanto
+    			nanto.resetEnergi();  //mengembalikan energi nanto
                         for (int j=0; j < input.getListBarang().size(); j++) { // mengembalikan jumlah pembelian barang jadi 0
                             pembelianBarang.add(j, 0);
                         }
@@ -48,7 +49,7 @@ public class Validator {
     		}
 
     		//cek energi nanto
-			if (input.getNanto().getCurrentEnergi() <= 0) {
+			if (nanto.getCurrentEnergi() <= 0) {
 				return false;
 			}
 
@@ -62,11 +63,11 @@ public class Validator {
                             }
                             
                             Cewek cewek = input.getListCewek().get(idxcewek);
-                            Nanto nanto = input.getNanto();
+                            
                             int nbKetemu = pertemuanCewek.get(idxcewek);
                             int maxKetemu = cewek.getMaksimalJamPerHari();
                             if (nanto.isPrerequisiteLengkap(cewek) && nanto.isEnoughBrain(cewek) && nanto.isEnoughCharm(cewek) && nanto.isEnoughEnergi(cewek) && nanto.isEnoughStrength(cewek) && (nbKetemu < maxKetemu)) {
-                                input.getNanto().subCurrentEnergi(cewek.getEnergiPerJam());
+                                nanto.subCurrentEnergi(cewek.getEnergiPerJam());
                                 pertemuanCewek.add(idxcewek, pertemuanCewek.get(idxcewek)+1);
                             } else {return false; }
                             
@@ -74,20 +75,20 @@ public class Validator {
     			else if (Character.isLowerCase(act)) { 		//pergi ke suatu tempat
     				switch (act) {
     					case 'u' :  if (input.getUniversity().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								input.getNanto().addBrain(input.getUniversity().getBrain());
-                                                                input.getNanto().subCurrentEnergi(input.getUniversity().getEnergi());
+    								nanto.addBrain(input.getUniversity().getBrain());
+                                                                nanto.subCurrentEnergi(input.getUniversity().getEnergi());
                                                     } else { return false; }
     					case 'g' : if (input.getGymnasium().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								input.getNanto().addStrength(input.getGymnasium().getStrength());
-                                                                input.getNanto().subCurrentEnergi(input.getGymnasium().getEnergi());
+    								nanto.addStrength(input.getGymnasium().getStrength());
+                                                                nanto.subCurrentEnergi(input.getGymnasium().getEnergi());
                                                     } else { return false; }
     					case 'c' : if (input.getCafe().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								input.getNanto().addCharm(input.getCafe().getCharm());
-                                                                input.getNanto().subCurrentEnergi(input.getCafe().getEnergi());
+    								nanto.addCharm(input.getCafe().getCharm());
+                                                                nanto.subCurrentEnergi(input.getCafe().getEnergi());
                                                     } else { return false; }
     					case 'm' : if (input.getMall().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								input.getNanto().addUang(input.getMall().getMoney());
-                                                                input.getNanto().subCurrentEnergi(input.getMall().getEnergi());
+    								nanto.addUang(input.getMall().getMoney());
+                                                                nanto.subCurrentEnergi(input.getMall().getEnergi());
                                                     } else { return false; }
     					default : 
     				}
@@ -100,12 +101,12 @@ public class Validator {
                                 }
                             } 
                            
-                           int uangNanto = input.getNanto().getUang();
+                           int uangNanto = nanto.getUang();
                            int maxPembelian = input.getListBarang().get(idx).getRestockPerHari();
                            int harga = input.getListBarang().get(idx).getHarga();
                            int nbPembelian = pembelianBarang.get(idx);
                            if ((uangNanto >= harga) && (nbPembelian < maxPembelian)) {
-                               input.getNanto().beliBarang(input.getListBarang().get(idx));
+                               nanto.beliBarang(input.getListBarang().get(idx));
                                pembelianBarang.add(idx, pembelianBarang.get(idx)+1);
                            } else { return false;}
     			}  
