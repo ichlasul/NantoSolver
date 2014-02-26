@@ -1,5 +1,6 @@
 package itb.ai.tubes1.controller;
 
+import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.entity.Cewek;
@@ -13,6 +14,8 @@ public class Validator {
     public static ListOfCewek loc = null;
 
     public static Input input = null;
+
+	private static char act;
 
     public static boolean isValid(String jadwal) {
     	boolean valid = true;
@@ -108,8 +111,9 @@ public class Validator {
     		}
     		
     	}
-        
-        return valid;
+
+		return valid;
+
 
     }
 
