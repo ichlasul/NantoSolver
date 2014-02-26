@@ -22,7 +22,7 @@ public class Main {
 	// testcase1();
 	testcaseinput();
 	for (int i = 0; i < 100; i++) {
-	    output = Validator.funcRandom((waktu * 7), lob.getJumlahBarang(),
+	    output = Validator.funcRandom((waktu * 7), lob.size(),
 		    loc.getJumlahCewek());
 	    loo.AddListOfOutput(output);
 	    int en = Validator.funcEnlightment(output);
