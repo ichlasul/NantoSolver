@@ -2,7 +2,7 @@ package itb.ai.tubes1.entity;
 
 public class Tempat {
 
-    private int energiBerkurang;
+    protected int energiBerkurang;
     
     protected Jadwal jadwal;
 
