@@ -3,6 +3,8 @@ package itb.ai.tubes1.controller;
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.boundary.Input;
+import itb.ai.tubes1.entity.Cewek;
+import itb.ai.tubes1.entity.Nanto;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,15 +19,32 @@ public class Validator {
 
     public static boolean isValid(String jadwal) {
     	boolean valid = true;
-    	//list jumlah pembelian setiap barang
-    	//list jumlah jam bertemu dgn setiap kandidat
+    	
+        ArrayList<Integer> pembelianBarang = new ArrayList<>(); //list jumlah pembelian setiap barang
+        //inisialisasi list jumlah pembelian barang
+        for (int j=0; j < input.getListBarang().size(); j++) {
+            pembelianBarang.add(j, 0);
+        }
+        
+        ArrayList<Integer> pertemuanCewek = new ArrayList<>(); //list jumlah jam bertemu setiap cewek
+        //inisialisasi list jumlah jam bertemu dgn setiap kandidat
+        for (int j=0; j < input.getListCewek().size(); j++) {
+            pertemuanCewek.add(j, 0);
+        }
+        
 
     	for (int i = 0; i < jadwal.length(); i++) {
     		char act;
                 act = jadwal.charAt(i);
 
-    		if (i % 12 == 0) { 		//nanto baru saja tidur
-    			//set energi nanto seperti default 
+    		if (i % 12 == 0) { 		//ganti hari
+    			input.getNanto().resetEnergi();  //mengembalikan energi nanto
+                        for (int j=0; j < input.getListBarang().size(); j++) { // mengembalikan jumlah pembelian barang jadi 0
+                            pembelianBarang.add(j, 0);
+                        }
+                        for (int j = 0; j < input.getListCewek().size(); j++) { //mengembalikan seperti semula
+                            pertemuanCewek.add(j, 0);
+                        }
     		}
 
     		//cek energi nanto
@@ -35,21 +54,60 @@ public class Validator {
 
     		if (act != '0') { 		//nanto beraktivitas
     			if (Character.isDigit(act)) { 		//bertemu cewek
-
+                            int idxcewek = 0;
+                            for (int j = 0; j < input.getListCewek().size(); j++) {
+                                if (input.getListCewek().get(j).getNomor() == Character.getNumericValue(act)) {
+                                    idxcewek = j;
+                                }
+                            }
+                            
+                            Cewek cewek = input.getListCewek().get(idxcewek);
+                            Nanto nanto = input.getNanto();
+                            int nbKetemu = pertemuanCewek.get(idxcewek);
+                            int maxKetemu = cewek.getMaksimalJamPerHari();
+                            if (nanto.isPrerequisiteLengkap(cewek) && nanto.isEnoughBrain(cewek) && nanto.isEnoughCharm(cewek) && nanto.isEnoughEnergi(cewek) && nanto.isEnoughStrength(cewek) && (nbKetemu < maxKetemu)) {
+                                input.getNanto().subCurrentEnergi(cewek.getEnergiPerJam());
+                                pertemuanCewek.add(idxcewek, pertemuanCewek.get(idxcewek)+1);
+                            } else {return false; }
+                            
     			} 
     			else if (Character.isLowerCase(act)) { 		//pergi ke suatu tempat
     				switch (act) {
-    					case 'u' :	//cek dijadwal buka atau ga
-    								//jika buka, pergi ke tempat itu
-
-    					case 'g' : 
-    					case 'c' : 
-    					case 'm' : 
+    					case 'u' :  if (input.getUniversity().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								input.getNanto().addBrain(input.getUniversity().getBrain());
+                                                                input.getNanto().subCurrentEnergi(input.getUniversity().getEnergi());
+                                                    } else { return false; }
+    					case 'g' : if (input.getGymnasium().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								input.getNanto().addStrength(input.getGymnasium().getStrength());
+                                                                input.getNanto().subCurrentEnergi(input.getGymnasium().getEnergi());
+                                                    } else { return false; }
+    					case 'c' : if (input.getCafe().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								input.getNanto().addCharm(input.getCafe().getCharm());
+                                                                input.getNanto().subCurrentEnergi(input.getCafe().getEnergi());
+                                                    } else { return false; }
+    					case 'm' : if (input.getMall().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								input.getNanto().addUang(input.getMall().getMoney());
+                                                                input.getNanto().subCurrentEnergi(input.getMall().getEnergi());
+                                                    } else { return false; }
     					default : 
     				}
     			} 
     			else if (Character.isUpperCase(act)) { 		//membeli barang
-
+                           int idx = 0; 
+                           for (int j=0; j < input.getListBarang().size(); j++) {
+                                if (input.getListBarang().get(j).getKode() == act) {
+                                    idx = j;
+                                }
+                            } 
+                           
+                           int uangNanto = input.getNanto().getUang();
+                           int maxPembelian = input.getListBarang().get(idx).getRestockPerHari();
+                           int harga = input.getListBarang().get(idx).getHarga();
+                           int nbPembelian = pembelianBarang.get(idx);
+                           if ((uangNanto >= harga) && (nbPembelian < maxPembelian)) {
+                               input.getNanto().beliBarang(input.getListBarang().get(idx));
+                               pembelianBarang.add(idx, pembelianBarang.get(idx)+1);
+                           } else { return false;}
     			}  
 
     			

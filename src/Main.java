@@ -1,57 +1,48 @@
 import java.util.ArrayList;
 
 import itb.ai.tubes1.boundary.Input;
-import itb.ai.tubes1.controller.Validator;
 import itb.ai.tubes1.entity.Barang;
-import itb.ai.tubes1.entity.ListOfCewek;
-import itb.ai.tubes1.entity.ListOfOutput;
+import itb.ai.tubes1.entity.Cafe;
+import itb.ai.tubes1.entity.Cewek;
+import itb.ai.tubes1.entity.Gymnasium;
+import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
+import itb.ai.tubes1.entity.University;
 
 public class Main {
 
-    static Nanto nanto = null;
-    static ArrayList<Barang> lob = null;
-    static ListOfCewek loc = null;
-    static ListOfOutput loo = new ListOfOutput();
-    static ArrayList<Integer> ai = new ArrayList<Integer>();
-    static int waktu = 2;
+    private static Input input;
+    private static Nanto nanto;
+    private static ArrayList<Barang> listBarang;
+    private static ArrayList<Cewek> listCewek;
+    private static Mall mall;
+    private static Gymnasium gym;
+    private static Cafe cafe;
+    private static University univ;
 
     public static void main(String[] args) {
-	String output = "";
-	Validator.loc = loc;
-	// testcase1();
-	testcaseinput();
-	for (int i = 0; i < 100; i++) {
-	    output = Validator.funcRandom((waktu * 7), lob.size(),
-		    loc.getJumlahCewek());
-	    loo.AddListOfOutput(output);
-	    int en = Validator.funcEnlightment(output);
-	    ai.add(en);
-	}
-	loo.printInfo();
-	System.out.println(output);
-	for (int i = 0; i < loc.getListOfCewek().size(); i++) {
-	    System.out.println(loc.getListOfCewek().get(i)
-		    .getEnlightmentPerJam());
-	}
-	loc.listOfCewek.get(0).printJadwal();
-	System.out.println(Validator.bestEnlightment(ai));
-    }
-
-    private static void testcaseinput() {
-	Nanto nanto = null;
-	ListOfCewek loc = null;
-
-	Input input = new Input("txt/umum.txt", "txt/kandidat.txt",
-		"txt/tempat.txt");
-
+	//Mendapatkan input
+	input = new Input("txt/umum.txt", "txt/kandidat.txt", "txt/tempat.txt");
 	input.readFile();
-
 	nanto = input.getNanto();
-	nanto.printInfo();
-
-	loc = input.getListCewek();
-	loc.printInfo();
-
+	listBarang = input.getListBarang();
+	listCewek = input.getListCewek();
+	mall = input.getMall();
+	gym = input.getGymnasium();
+	input.getCafe();
+	input.getUniversity();
+	
+	//test print
+	System.out.println(nanto);
+	for (Barang barang: listBarang) {
+	    System.out.println(barang);
+	}
+	for (Cewek cewek: listCewek) {
+	    System.out.println(cewek);
+	}
+	System.out.println(mall);
+	System.out.println(gym);
+	System.out.println(cafe);
+	System.out.println(univ);
     }
 }

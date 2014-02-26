@@ -28,4 +28,12 @@ public class Mall extends Tempat {
         this.money = money;
     }
 
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Mall [Money=" + money + ", EnergiBerkurang=" + energiBerkurang
+		+ ", Jadwal=" + jadwal + "]";
+    }
 }

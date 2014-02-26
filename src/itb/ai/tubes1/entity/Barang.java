@@ -1,23 +1,34 @@
 package itb.ai.tubes1.entity;
 
 public class Barang {
-    // atribut
+
     private String nama;
     private char kode;
     private int harga;
     private int restockPerHari;
 
-    // ctor
+
     public Barang() {
 	kode = 'A';
 	harga = 0;
 	restockPerHari = 0;
+	nama = "Cokelat";
     }
 
     public Barang(char _kode, int _harga, int _restockPerHari) {
 	kode = _kode;
 	harga = _harga;
 	restockPerHari = _restockPerHari;
+	
+	if (kode == 'A') {
+	    nama = "Cokelat";
+	} else if (kode == 'B') {
+	    nama = "Bunga";
+	} else if (kode == 'C') {
+	    nama = "Martabak Manis";
+	} else if (kode == 'D') {
+	    nama = "Permen";
+	}
     }
 
     public Barang(char c) {
@@ -82,5 +93,14 @@ public class Barang {
 	    return false;
 	}
 	return true;
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Barang [Nama=" + nama + ", Kode=" + kode + ", Harga=" + harga
+		+ ", RestockPerHari=" + restockPerHari + "]";
     }
 }

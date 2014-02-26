@@ -35,6 +35,7 @@ public class Nanto extends Orang {
 	this.charm = 0;
 	this.brain = 0;
 	this.currentEnergi = this.energiPerHari;
+	listBarang = new ArrayList<Barang>();
     }
 
     // Override
@@ -44,6 +45,7 @@ public class Nanto extends Orang {
 	this.uang = uang;
 	this.energiPerHari = energiPerHari;
 	this.currentEnergi = this.energiPerHari;
+	listBarang = new ArrayList<Barang>();
     }
 
     // Override versi 2
@@ -53,6 +55,7 @@ public class Nanto extends Orang {
 	this.uang = uang;
 	this.energiPerHari = energiPerHari;
 	this.currentEnergi = this.energiPerHari;
+	listBarang = new ArrayList<Barang>();
     }
 
     // Getter dan setter
@@ -144,7 +147,7 @@ public class Nanto extends Orang {
 	return this.charm >= cewek.charm;
     }
 
-    public boolean isEnoughStrent(Cewek cewek) {
+    public boolean isEnoughStrength(Cewek cewek) {
 	return this.strength >= cewek.strength;
     }
 
@@ -167,12 +170,21 @@ public class Nanto extends Orang {
     public void hapusBarang(Barang barang) {
 	listBarang.remove(barang);
     }
+    
+    public void beliBarang(Barang barang) {
+        addBarang(barang);
+        subUang(barang.getHarga());
+    }
+    
 
-    // DEBUG
-    public void printInfo() {
-	System.out.println("Uang = " + this.uang + "\nStrength = "
-		+ this.strength + "\nCharm = " + this.charm + "\nBrain = "
-		+ this.brain + "\nEnergi per hari = " + this.energiPerHari
-		+ "\nCurrent energi = " + this.currentEnergi);
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Nanto [Uang=" + uang + ", EnergiPerHari=" + energiPerHari
+		+ ",CurrentEnergi=" + currentEnergi + ", ListBarang="
+		+ listBarang + ", Strength=" + strength + ", Charm=" + charm
+		+ ", Brain=" + brain + "]";
     }
 }
