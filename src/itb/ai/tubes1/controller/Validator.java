@@ -2,6 +2,7 @@ package itb.ai.tubes1.controller;
 
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.entity.ListOfCewek;
+import itb.ai.tubes1.boundary.Input;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -20,7 +21,8 @@ public class Validator {
     	//list jumlah jam bertemu dgn setiap kandidat
 
     	for (int i = 0; i < jadwal.length(); i++) {
-    		act = jadwal.charAt(i);
+    		char act;
+                act = jadwal.charAt(i);
 
     		if (i % 12 == 0) { 		//nanto baru saja tidur
     			//set energi nanto seperti default 
@@ -54,7 +56,9 @@ public class Validator {
     		}
     		
     	}
+
 		return valid;
+
 
     }
 

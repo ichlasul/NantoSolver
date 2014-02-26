@@ -15,17 +15,17 @@ public class University extends Tempat {
     }
 
     /**
-     * @return the money
+     * @return the brain
      */
-    public int getMoney() {
+    public int getBrain() {
         return brain;
     }
 
     /**
-     * @param money the money to set
+     * @param brain the brain to set
      */
-    public void setMoney(int money) {
-        this.brain = money;
+    public void setBrain(int brain) {
+        this.brain = brain;
     }
 
 }

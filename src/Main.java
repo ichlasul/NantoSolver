@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.controller.Validator;
-import itb.ai.tubes1.entity.ListOfBarang;
+import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.ListOfOutput;
 import itb.ai.tubes1.entity.Nanto;
@@ -10,7 +10,7 @@ import itb.ai.tubes1.entity.Nanto;
 public class Main {
 
     static Nanto nanto = null;
-    static ListOfBarang lob = null;
+    static ArrayList<Barang> lob = null;
     static ListOfCewek loc = null;
     static ListOfOutput loo = new ListOfOutput();
     static ArrayList<Integer> ai = new ArrayList<Integer>();
@@ -22,7 +22,7 @@ public class Main {
 	// testcase1();
 	testcaseinput();
 	for (int i = 0; i < 100; i++) {
-	    output = Validator.funcRandom((waktu * 7), lob.getJumlahBarang(),
+	    output = Validator.funcRandom((waktu * 7), lob.size(),
 		    loc.getJumlahCewek());
 	    loo.AddListOfOutput(output);
 	    int en = Validator.funcEnlightment(output);
@@ -41,7 +41,6 @@ public class Main {
     private static void testcaseinput() {
 	Nanto nanto = null;
 	ListOfCewek loc = null;
-	ListOfBarang lob = null;
 
 	Input input = new Input("txt/umum.txt", "txt/kandidat.txt",
 		"txt/tempat.txt");
@@ -53,9 +52,6 @@ public class Main {
 
 	loc = input.getListCewek();
 	loc.printInfo();
-
-	lob = input.getListBarang();
-	lob.printInfo();
 
     }
 }

@@ -5,7 +5,6 @@ import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Gymnasium;
 import itb.ai.tubes1.entity.Jadwal;
-import itb.ai.tubes1.entity.ListOfBarang;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
@@ -14,25 +13,26 @@ import itb.ai.tubes1.entity.University;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Input {
 
-    String fileUmum;
-    String fileKandidat;
-    String fileTempat;
+    private String fileUmum;
+    private String fileKandidat;
+    private String fileTempat;
 
-    int nKandidat;
-    int nBarang;
+    private int nKandidat;
+    private int nBarang;
 
-    Nanto nanto;
-    ListOfCewek listCewek;
-    ListOfBarang listBarang;
+    private Nanto nanto;
+    private ListOfCewek listCewek;
+    private ArrayList<Barang> listBarang;
     
-    Mall mall;
-    Gymnasium gymnasium;
-    Cafe cafe;
-    University university;
+    private Mall mall;
+    private Gymnasium gymnasium;
+    private Cafe cafe;
+    private University university;
 
     public Input(String umum, String kandidat, String tempat) {
 	fileUmum = umum;
@@ -44,7 +44,7 @@ public class Input {
 
 	nanto = new Nanto();
 	listCewek = new ListOfCewek();
-	listBarang = new ListOfBarang();
+	listBarang = new ArrayList<Barang>();
 	
 	mall = new Mall();
 	gymnasium = new Gymnasium();
@@ -60,8 +60,50 @@ public class Input {
 	return listCewek;
     }
 
-    public ListOfBarang getListBarang() {
+    public ArrayList<Barang> getListBarang() {
 	return listBarang;
+    }
+
+    /**
+     * @return the nKandidat
+     */
+    public int getnKandidat() {
+        return nKandidat;
+    }
+
+    /**
+     * @return the nBarang
+     */
+    public int getnBarang() {
+        return nBarang;
+    }
+
+    /**
+     * @return the mall
+     */
+    public Mall getMall() {
+        return mall;
+    }
+
+    /**
+     * @return the gymnasium
+     */
+    public Gymnasium getGymnasium() {
+        return gymnasium;
+    }
+
+    /**
+     * @return the cafe
+     */
+    public Cafe getCafe() {
+        return cafe;
+    }
+
+    /**
+     * @return the university
+     */
+    public University getUniversity() {
+        return university;
     }
 
     public void readFile() {
@@ -118,7 +160,7 @@ public class Input {
 		b.setHarga(s.nextInt());
 		b.setRestockPerHari(s.nextInt());
 
-		listBarang.addBarang(b);
+		listBarang.add(b);
 	    }
 	    
 	} catch (FileNotFoundException e) {
