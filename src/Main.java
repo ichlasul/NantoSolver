@@ -36,7 +36,7 @@ public class Main {
 	
 	
 	Validator.input = input;
-	for(int i=0;i<100000;i++){
+	for(int i=0;i<10;i++){
 	String test = Validator.funcRandom(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
 	if(Validator.isValid(test)){
 		System.out.println("OKE");

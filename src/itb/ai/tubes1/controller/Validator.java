@@ -20,6 +20,7 @@ public class Validator {
     public static boolean isValid(String jadwal) {
     	boolean valid = true;
     	
+    	System.out.println(jadwal);
         ArrayList<Integer> pembelianBarang = new ArrayList<>(); //list jumlah pembelian setiap barang
         //inisialisasi list jumlah pembelian barang
         for (int j=0; j < input.getListBarang().size(); j++) {
@@ -54,6 +55,7 @@ public class Validator {
 
     		if (act != '0') { 		//nanto beraktivitas
     			if (Character.isDigit(act)) { 		//bertemu cewek
+                            System.out.println("lewat");
                             int idxcewek = 0;
                             for (int j = 0; j < input.getListCewek().size(); j++) {
                                 if (input.getListCewek().get(j).getNomor() == Character.getNumericValue(act)) {
@@ -72,6 +74,7 @@ public class Validator {
                             
     			} 
     			else if (Character.isLowerCase(act)) { 		//pergi ke suatu tempat
+    				System.out.println("lewat2");
     				switch (act) {
     					case 'u' :  if (input.getUniversity().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
     								input.getNanto().addBrain(input.getUniversity().getBrain());
@@ -93,6 +96,7 @@ public class Validator {
     				}
     			} 
     			else if (Character.isUpperCase(act)) { 		//membeli barang
+    				       System.out.println("lewat3");
                            int idx = 0; 
                            for (int j=0; j < input.getListBarang().size(); j++) {
                                 if (input.getListBarang().get(j).getKode() == act) {
