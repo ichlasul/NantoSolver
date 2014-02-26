@@ -168,11 +168,14 @@ public class Nanto extends Orang {
 	listBarang.remove(barang);
     }
 
-    // DEBUG
-    public void printInfo() {
-	System.out.println("Uang = " + this.uang + "\nStrength = "
-		+ this.strength + "\nCharm = " + this.charm + "\nBrain = "
-		+ this.brain + "\nEnergi per hari = " + this.energiPerHari
-		+ "\nCurrent energi = " + this.currentEnergi);
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Nanto [Uang=" + uang + ", EnergiPerHari=" + energiPerHari
+		+ ",CurrentEnergi=" + currentEnergi + ", ListBarang="
+		+ listBarang + ", Strength=" + strength + ", Charm=" + charm
+		+ ", Brain=" + brain + "]";
     }
 }
