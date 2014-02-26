@@ -144,7 +144,7 @@ public class Nanto extends Orang {
 	return this.charm >= cewek.charm;
     }
 
-    public boolean isEnoughStrent(Cewek cewek) {
+    public boolean isEnoughStrength(Cewek cewek) {
 	return this.strength >= cewek.strength;
     }
 
@@ -167,6 +167,12 @@ public class Nanto extends Orang {
     public void hapusBarang(Barang barang) {
 	listBarang.remove(barang);
     }
+    
+    public void beliBarang(Barang barang) {
+        addBarang(barang);
+        subUang(barang.getHarga());
+    }
+    
 
     // DEBUG
     public void printInfo() {
