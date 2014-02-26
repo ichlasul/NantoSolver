@@ -6,7 +6,8 @@ public class University extends Tempat {
     
     public University() {
 	super();
-	brain = 0;
+	energiBerkurang = 15;
+	brain = 3;
     }
 
     public University(int _jumlahEnergi, int money) {

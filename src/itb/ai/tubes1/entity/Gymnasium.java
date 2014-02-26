@@ -6,7 +6,8 @@ public class Gymnasium extends Tempat {
     
     public Gymnasium() {
 	super();
-	strength = 0;
+	energiBerkurang = 12;
+	strength = 2;
     }
 
     public Gymnasium(int _jumlahEnergi, int money) {
