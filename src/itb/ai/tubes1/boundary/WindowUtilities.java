@@ -1,3 +1,5 @@
+package itb.ai.tubes1.boundary;
+
 import javax.swing.*;
 import java.awt.*;
 

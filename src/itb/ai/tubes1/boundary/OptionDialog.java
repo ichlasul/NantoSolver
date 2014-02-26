@@ -1,3 +1,5 @@
+package itb.ai.tubes1.boundary;
+
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 
@@ -10,11 +12,6 @@ import javax.swing.plaf.FileChooserUI;
 
 import java.awt.Label;
 import java.awt.GridBagLayout;
-
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.factories.FormFactory;
 
 import java.awt.TextField;
 

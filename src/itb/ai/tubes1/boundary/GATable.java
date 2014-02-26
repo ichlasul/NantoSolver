@@ -1,3 +1,5 @@
+package itb.ai.tubes1.boundary;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;

@@ -1,3 +1,5 @@
+package itb.ai.tubes1.boundary;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
