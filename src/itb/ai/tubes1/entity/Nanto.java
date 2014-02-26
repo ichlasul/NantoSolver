@@ -155,6 +155,18 @@ public class Nanto extends Orang {
     public boolean isEnoughEnergi(Cewek cewek) {
 	return this.currentEnergi <= cewek.getEnergiPerJam();
     }
+    
+    public void addBarang(Barang barang) {
+	listBarang.add(barang);
+    }
+    
+    public boolean isPunyaBarang(Barang barang) {
+	return listBarang.contains(barang);
+    }
+    
+    public void hapusBarang(Barang barang) {
+	listBarang.remove(barang);
+    }
 
     // DEBUG
     public void printInfo() {
