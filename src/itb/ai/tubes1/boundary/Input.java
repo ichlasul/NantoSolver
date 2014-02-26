@@ -18,21 +18,21 @@ import java.util.Scanner;
 
 public class Input {
 
-    String fileUmum;
-    String fileKandidat;
-    String fileTempat;
+    private String fileUmum;
+    private String fileKandidat;
+    private String fileTempat;
 
-    int nKandidat;
-    int nBarang;
+    private int nKandidat;
+    private int nBarang;
 
-    Nanto nanto;
-    ListOfCewek listCewek;
-    ListOfBarang listBarang;
+    private Nanto nanto;
+    private ListOfCewek listCewek;
+    private ListOfBarang listBarang;
     
-    Mall mall;
-    Gymnasium gymnasium;
-    Cafe cafe;
-    University university;
+    private Mall mall;
+    private Gymnasium gymnasium;
+    private Cafe cafe;
+    private University university;
 
     public Input(String umum, String kandidat, String tempat) {
 	fileUmum = umum;
@@ -62,6 +62,48 @@ public class Input {
 
     public ListOfBarang getListBarang() {
 	return listBarang;
+    }
+
+    /**
+     * @return the nKandidat
+     */
+    public int getnKandidat() {
+        return nKandidat;
+    }
+
+    /**
+     * @return the nBarang
+     */
+    public int getnBarang() {
+        return nBarang;
+    }
+
+    /**
+     * @return the mall
+     */
+    public Mall getMall() {
+        return mall;
+    }
+
+    /**
+     * @return the gymnasium
+     */
+    public Gymnasium getGymnasium() {
+        return gymnasium;
+    }
+
+    /**
+     * @return the cafe
+     */
+    public Cafe getCafe() {
+        return cafe;
+    }
+
+    /**
+     * @return the university
+     */
+    public University getUniversity() {
+        return university;
     }
 
     public void readFile() {
