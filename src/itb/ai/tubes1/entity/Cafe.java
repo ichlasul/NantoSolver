@@ -6,7 +6,8 @@ public class Cafe extends Tempat {
     
     public Cafe() {
 	super();
-	charm = 0;
+	energiBerkurang = 6;
+	charm = 2;
     }
 
     public Cafe(int _jumlahEnergi, int money) {

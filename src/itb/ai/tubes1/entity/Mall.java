@@ -6,7 +6,8 @@ public class Mall extends Tempat {
     
     public Mall() {
 	super();
-	money = 0;
+	energiBerkurang = 8;
+	money = 10000;
     }
 
     public Mall(int _jumlahEnergi, int money) {
@@ -26,6 +27,7 @@ public class Mall extends Tempat {
      */
     public void setMoney(int money) {
         this.money = money;
+        
     }
 
     /* (non-Javadoc)

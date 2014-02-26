@@ -42,9 +42,9 @@ public class Jadwal {
 	String buf = "";
 	for (Boolean bol: data) {
 	    if (bol) {
-		buf.concat("1");
+		buf += "1";
 	    } else {
-		buf.concat("0");
+		buf += "0";
 	    }
 	}
 	return "Jadwal [data=" + buf + "]";
