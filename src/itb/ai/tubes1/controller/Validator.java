@@ -114,6 +114,11 @@ public class Validator {
     		}
     		
     	}
+        
+        //cek apakah setiap kandidat minimal pernah dikunjungi
+        for (int j=0; j < pertemuanCewek.size(); j++) {
+            if (pertemuanCewek.get(j) == 0) return false;
+        }
 
 		return valid;
 
