@@ -35,6 +35,7 @@ public class Nanto extends Orang {
 	this.charm = 0;
 	this.brain = 0;
 	this.currentEnergi = this.energiPerHari;
+	listBarang = new ArrayList<Barang>();
     }
 
     // Override
@@ -44,6 +45,7 @@ public class Nanto extends Orang {
 	this.uang = uang;
 	this.energiPerHari = energiPerHari;
 	this.currentEnergi = this.energiPerHari;
+	listBarang = new ArrayList<Barang>();
     }
 
     // Override versi 2
@@ -53,6 +55,7 @@ public class Nanto extends Orang {
 	this.uang = uang;
 	this.energiPerHari = energiPerHari;
 	this.currentEnergi = this.energiPerHari;
+	listBarang = new ArrayList<Barang>();
     }
 
     // Getter dan setter
