@@ -146,6 +146,8 @@ public class Input {
 		c.setStrength(s.nextInt());
 		c.setCharm(s.nextInt());
 		c.setBrain(s.nextInt());
+		
+		c.setNomor(i + 1);
 
 		listCewek.add(c);
 	    }
