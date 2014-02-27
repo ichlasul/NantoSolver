@@ -2,7 +2,6 @@ package itb.ai.tubes1.boundary;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -58,20 +57,42 @@ public class OptionPreference {
 	
 	public void readFromFile() throws IOException
 	{
-		BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(System.getProperty("user.dir") + "\\temp.txt")));		
-		String line = bufferedReader.readLine();									
-		this.setMaxLoop(Integer.parseInt(line));
-		line = bufferedReader.readLine();
-		if (Integer.parseInt(line) == 1)
-			this.setManualLoop(true);
-		else
-			this.setManualLoop(false);
-		line = bufferedReader.readLine();
-		this.setPathKandidat(line);
-		line = bufferedReader.readLine();
-		this.setPathTempat(line);
-		line = bufferedReader.readLine();
-		this.setPathUmum(line);
-		bufferedReader.close();			
+		try {		
+			BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(System.getProperty("user.dir") + "\\temp.txt")));			
+			String line;
+			
+			if ((line = bufferedReader.readLine()).length() == 0)									
+				this.setMaxLoop(Integer.parseInt("0"));				
+			else
+				this.setMaxLoop(Integer.parseInt(line));
+			
+			if ((line = bufferedReader.readLine()).length() == 0) {			
+				if (Integer.parseInt(line) == 1)
+					this.setManualLoop(true);
+				else
+					this.setManualLoop(false);
+			} else {
+				this.setManualLoop(false);
+			}
+			
+			if ((line = bufferedReader.readLine()).length() == 0)
+				this.setPathKandidat("");
+			else
+				this.setPathKandidat(line);
+			
+			if ((line = bufferedReader.readLine()).length() == 0)
+				this.setPathTempat("");
+			else
+				this.setPathTempat(line);
+			
+			if ((line = bufferedReader.readLine()).length() == 0)
+				this.setPathUmum("");
+			else
+				this.setPathUmum(line);
+			
+			bufferedReader.close();
+		} catch (Exception e) {
+			
+		}				
 	}	
 }

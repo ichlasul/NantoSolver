@@ -6,16 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-
 import java.awt.BorderLayout;
-
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.JToolBar;
 import javax.swing.JScrollPane;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
@@ -54,6 +46,8 @@ public class GATable {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		optionPreference = new OptionPreference();
+		
 		frmGeneticAlgorithmTable = new JFrame();
 		frmGeneticAlgorithmTable.setTitle("Genetic Algorithm Table");
 		frmGeneticAlgorithmTable.setBounds(100, 100, 640, 480);
@@ -62,18 +56,12 @@ public class GATable {
 		JMenuBar menuBar = new JMenuBar();
 		frmGeneticAlgorithmTable.setJMenuBar(menuBar);
 		
-		JMenu mnGeneticAlgotirhm = new JMenu("  Genetic Algotirhm  ");
+		JMenu mnGeneticAlgotirhm = new JMenu("  Genetic Algorithm  ");
 		menuBar.add(mnGeneticAlgotirhm);
 		
 		JMenuItem mntmSolve = new JMenuItem("Solve!");
-		mnGeneticAlgotirhm.add(mntmSolve);
-		
-		JMenuItem mntmOption = new JMenuItem("Option...");
-		mntmOption.addActionListener(new ActionListener() {
-			@SuppressWarnings("deprecation")
+		mntmSolve.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				OptionDialog optionDialog = new OptionDialog();
-				optionDialog.show();
 				try {
 					optionPreference.readFromFile();
 				} catch (IOException e) {
@@ -86,6 +74,16 @@ public class GATable {
 						optionPreference.getPathKandidat() + "\n" +
 						optionPreference.getPathTempat() + "\n" +
 						optionPreference.getPathUmum());
+			}
+		});
+		mnGeneticAlgotirhm.add(mntmSolve);
+		
+		JMenuItem mntmOption = new JMenuItem("Option...");
+		mntmOption.addActionListener(new ActionListener() {
+			@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				OptionDialog optionDialog = new OptionDialog();
+				optionDialog.show();				
 			}	
 		});
 		mnGeneticAlgotirhm.add(mntmOption);

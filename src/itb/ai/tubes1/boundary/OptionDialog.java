@@ -1,24 +1,11 @@
 package itb.ai.tubes1.boundary;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
-
-import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.FileChooserUI;
+import javax.swing.JOptionPane;
 
 import java.awt.Label;
-import java.awt.GridBagLayout;
-
 import java.awt.TextField;
-
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JTextArea;
-
 import java.awt.Font;
 
 import javax.swing.JCheckBox;
@@ -27,12 +14,12 @@ import java.awt.Button;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.nio.file.Path;
 import java.util.Formatter;
 
 
 public class OptionDialog extends JDialog {
-
+	public static final long serialVersionUID = 1L;
+	
 	private OptionPreference optionPreference;
 	private JFileChooser fileChooser;
 	
@@ -154,23 +141,31 @@ public class OptionDialog extends JDialog {
 		Button confirmBtn = new Button("OK");	
 		confirmBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				optionPreference.setMaxLoop(Integer.parseInt(maxLoopTxt.getText()));
-				optionPreference.setManualLoop(manualLoopChk.isSelected());
-				optionPreference.setPathKandidat(pathKandidatTxt.getText());
-				optionPreference.setPathTempat(pathTempatTxt.getText());
-				optionPreference.setPathUmum(pathUmumTxt.getText());
-				if (validData())
-					saveDataToTemp();
-				dispose();
-			}
+				try
+				{
+					optionPreference.setMaxLoop(Integer.parseInt(maxLoopTxt.getText()));
+					optionPreference.setManualLoop(manualLoopChk.isSelected());
+					optionPreference.setPathKandidat(pathKandidatTxt.getText());
+					optionPreference.setPathTempat(pathTempatTxt.getText());
+					optionPreference.setPathUmum(pathUmumTxt.getText());
+				} catch (Exception ex) {
 					
+				}
+				if (validData()) {
+					saveDataToTemp();
+					JOptionPane.showMessageDialog(null, "Berhasil Disimpan", "Genetic Algorithm", 1);
+					dispose();
+				} else {
+					JOptionPane.showMessageDialog(null, "Invalid Input", "Genetic Algorithm", 0);	
+				}				
+			}
 		});
 		confirmBtn.setBounds(270, 229, 70, 22);
 		getContentPane().add(confirmBtn);
 		
 		Button cancelBtn = new Button("Cancel");
 		cancelBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) {				
 				dispose();
 			}
 		});
@@ -186,10 +181,8 @@ public class OptionDialog extends JDialog {
 		 return this.optionPreference;
 	 }
 	 
-	 private void saveDataToTemp() {
-		 if (!validData())
-			 return;		 
-		 File tempFile = new File(System.getProperty("user.dir") + "\\temp.txt");		         
+	 private void saveDataToTemp() {		 		
+		 File tempFile = new File(System.getProperty("user.dir") + "\\txt\\temp.txt");		 
          try {
 			Formatter formatter = new Formatter(tempFile.getName());
 			String sfile = optionPreference.buildString();
@@ -201,15 +194,15 @@ public class OptionDialog extends JDialog {
 		}
 	 }
 
-	 private boolean validData() {
+	 private boolean validData() {		 
 		if (!isNumeric(maxLoopTxt.getText()))
 			return false;
 		if (pathTempatTxt.getText().length() == 0 || pathKandidatTxt.getText().length() == 0 || pathUmumTxt.getText().length() == 0)
-			return false;
-		return true;
+			return false;		
+		return true;		 
 	 }
 	
 	 public boolean isNumeric(String str){
-		 return str.matches("-?\\d+(\\.\\d+)?");  //match a number with optional '-' and decimal.
+		 return str.matches("-?\\d+(\\.\\d+)?");
 	 }
 }
