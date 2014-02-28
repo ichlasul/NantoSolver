@@ -18,8 +18,13 @@ public class Validator {
 	private static char act;
 
     public static boolean isValid(String jadwal) {
-        Nanto nanto = input.getNanto(); 
-    	boolean valid = true;
+        Nanto nanto = new Nanto();
+        nanto.setBrain(input.getNanto().getBrain());
+        nanto.setCharm(input.getNanto().getCharm());
+        nanto.setCurrentEnergi(input.getNanto().getCurrentEnergi());
+        nanto.setEnergiPerHari(input.getNanto().getEnergiPerHari());
+    	nanto.setStrength(input.getNanto().getStrength());
+        boolean valid = true;
     	
     	System.out.println(jadwal);
         ArrayList<Integer> pembelianBarang = new ArrayList<>(); //list jumlah pembelian setiap barang
