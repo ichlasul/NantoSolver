@@ -85,9 +85,17 @@ public class Solution implements Chromosome<Solution>, Cloneable {
 		return Arrays.asList(thisClone, otherClone);
 	}
 	
-	public Population<Solution> randomPopulation() {
-		// TODO Auto-generated method stub
-		return null;
+	public Population<Solution> randomPopulation(int size) {
+		Population<Solution> population = new Population<Solution>();
+		
+		for (int i = 0; i < size; i++) {
+			// each member of initial population
+			// is mutated clone of base chromosome
+			this.randomSolution();
+			Solution chr = this.clone();
+			population.addChromosome(chr);
+		}
+		return population;
 	}
 
 	public void randomSolution() {

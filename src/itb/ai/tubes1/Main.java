@@ -30,8 +30,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		initialize();
-		main1();
-		//main2();
+		//main1();
+		main2();
 	}
 
 	private static void initialize() {
@@ -75,7 +75,11 @@ public class Main {
 	
 	private static void main2() {
 		Population<Solution> population = new Solution(listCewek.size(),
-				listBarang.size()).randomPopulation();
+				listBarang.size()).randomPopulation(8);
+		
+		for (Solution crs : population) {
+			System.out.println(crs);
+		}
 
 		Fitness<Solution, Integer> fitness = new Validator();
 
