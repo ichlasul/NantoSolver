@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
 import itb.ai.tubes1.boundary.Input;
+import itb.ai.tubes1.controller.Solution;
 import itb.ai.tubes1.controller.Validator;
 import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.Cafe;
@@ -37,7 +38,7 @@ public class Main {
 	
 	Validator.input = input;
 	for(int i=0;i<10;i++){
-	String test = Validator.funcRandom(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
+	String test = Solution.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
 	if(Validator.isValid(test)){
 		System.out.println("OKE");
 		System.out.println(test);

@@ -56,5 +56,27 @@ public class Solution implements Chromosome<Solution> {
 
 	return Arrays.asList(thisClone, otherClone);
     }
+    
+    public static String random(int jmlHari, int jmlW, int jmlB) {
+        Random r = new Random();
+        int totalJam = jmlHari * 12;
+        StringBuilder s = new StringBuilder(5 + jmlW + jmlB);
+        String alphabet = "gmcu0"; // String Default
+        
+        for (int i = 1; i < jmlW + 1; i++) {
+            alphabet = alphabet + i; // String Default + Jumlah wanita
+        }
+        
+        for (int j = 1; j < jmlB + 1; j++) {
+            alphabet = alphabet + (char) (64 + j); 
+        }
+        
+        for (int i = 0; i < (totalJam); i++) {
+            char tempChar = alphabet.charAt(r.nextInt(alphabet.length()));
+            s.append(tempChar);
+        }
+        
+        return s.toString(); // return String Random
+    }
 
 }

@@ -183,31 +183,4 @@ public class Validator {
 	}
 	return max;
     }
-
-    public static String funcRandom(int jmlHari, int jmlW, int jmlB) {// JmlW =
-								      // Jumlah
-								      // Wanita
-	Random r = new Random();
-	int totalJam = jmlHari * 12;
-	StringBuilder s = new StringBuilder(5 + jmlW + jmlB);
-	String alphabet = "gmcu0"; // String Default
-	for (int i = 1; i < jmlW + 1; i++) {
-	    alphabet = alphabet + i; // String Default + Jumlah wanita
-	}
-	for (int j = 1; j < jmlB + 1; j++) {
-	    alphabet = alphabet + (char) (64 + j);
-
-	}
-	for (int i = 0; i < (totalJam); i++) {
-	    char tempChar = alphabet.charAt(r.nextInt(alphabet.length()));
-	    s.append(tempChar);
-	}
-
-	return s.toString(); // return String Random
-    }
-    
-    public static void main (String[] argv) {
-	for (int i = 0; i < 10; i++)
-	    System.out.println(Validator.funcRandom(14,4,4));
-    }
 }
