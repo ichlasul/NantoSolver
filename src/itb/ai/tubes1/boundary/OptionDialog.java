@@ -1,21 +1,19 @@
 package itb.ai.tubes1.boundary;
 
+import java.awt.Button;
+import java.awt.Font;
+import java.awt.Label;
+import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.Formatter;
+
+import javax.swing.JCheckBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
-
-import java.awt.Label;
-import java.awt.TextField;
-import java.awt.Font;
-
-import javax.swing.JCheckBox;
-
-import java.awt.Button;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.io.File;
-import java.util.Formatter;
 
 
 public class OptionDialog extends JDialog {

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.controller.Solution;
 import itb.ai.tubes1.controller.Validator;
@@ -11,6 +9,8 @@ import itb.ai.tubes1.entity.Jadwal;
 import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
 import itb.ai.tubes1.entity.University;
+
+import java.util.ArrayList;
 
 public class Main {
 

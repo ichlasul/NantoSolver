@@ -13,15 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
-
 import com.lagodiuk.ga.Chromosome;
 import com.lagodiuk.ga.Fitness;
 import com.lagodiuk.ga.GeneticAlgorithm;
 import com.lagodiuk.ga.IterartionListener;
 import com.lagodiuk.ga.Population;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
 
 public class Demo {
 

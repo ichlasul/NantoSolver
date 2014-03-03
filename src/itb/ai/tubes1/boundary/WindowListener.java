@@ -1,7 +1,9 @@
 package itb.ai.tubes1.boundary;
 
-import javax.swing.*;
-import java.awt.event.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JFrame;
 
 public class WindowListener extends JFrame {	
 	public static final long serialVersionUID = 1L;
