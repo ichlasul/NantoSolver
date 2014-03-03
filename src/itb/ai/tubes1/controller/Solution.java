@@ -11,7 +11,7 @@ import java.util.Random;
  * Solusi, berupa string dengan panjang tergantung jumlah jam Solusi
  * merepresentasikan jadwal
  */
-public class Solution implements Chromosome<Solution> {
+public class Solution implements Chromosome<Solution>, Cloneable {
 
 	private static final Random random = new Random();
 	private static String randomDict = null;

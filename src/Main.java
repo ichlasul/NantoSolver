@@ -1,6 +1,9 @@
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.controller.Solution;
 import itb.ai.tubes1.controller.Validator;
+import itb.ai.tubes1.controller.ga.Fitness;
+import itb.ai.tubes1.controller.ga.GeneticAlgorithm;
+import itb.ai.tubes1.controller.ga.Population;
 import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Cewek;
@@ -24,6 +27,12 @@ public class Main {
 	private static University univ;
 
 	public static void main(String[] args) {
+		initialize();
+		//main1();
+		main2();
+	}
+
+	private static void initialize() {
 		// Mendapatkan input
 		input = new Input("txt/umum.txt", "txt/kandidat.txt", "txt/tempat.txt");
 		input.readFile();
@@ -34,10 +43,12 @@ public class Main {
 		gym = input.getGymnasium();
 		cafe = input.getCafe();
 		univ = input.getUniversity();
-
+	}
+	
+	private static void main1() {
 		Validator val = new Validator();
+		Solution sol = new Solution();
 		for (int i = 0; i < 10; i++) {
-			Solution sol = new Solution();
 			sol.random(Jadwal.JUMLAH_MINGGU * 7, listCewek.size(),
 					listBarang.size());
 			if (val.isValid(sol, nanto, listBarang, listCewek, mall, gym, cafe,
@@ -58,5 +69,19 @@ public class Main {
 		System.out.println(gym);
 		System.out.println(cafe);
 		System.out.println(univ);
+	}
+	
+	private static void main2() {
+		Population<Solution> population = null;
+
+		Fitness<Solution, Integer> fitness = new Validator();
+
+		GeneticAlgorithm<Solution, Integer> ga =
+				new GeneticAlgorithm<Solution,Integer>(population, fitness);
+
+		//addListener(ga);
+
+		ga.evolve(500);
+		
 	}
 }
