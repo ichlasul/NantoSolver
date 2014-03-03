@@ -2,12 +2,10 @@ package itb.ai.tubes1.controller;
 
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.entity.ListOfCewek;
-import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Nanto;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 public class Validator {
 
@@ -15,7 +13,7 @@ public class Validator {
 
     public static Input input = null;
 
-	private static char act;
+    private static char act;
 
     public static boolean isValid(String jadwal) {
         Nanto nanto = new Nanto();

@@ -58,9 +58,8 @@ public class Solution implements Chromosome<Solution> {
 	return Arrays.asList(thisClone, otherClone);
     }
     
-    public static String random(int jmlHari, int jmlW, int jmlB) {
-        int totalJam = jmlHari * 12;
-        StringBuilder s = new StringBuilder();
+    public void random(int jmlHari, int jmlW, int jmlB) {
+        char[] s = new char[jmlHari * 12];
         
         if (randomDict == null) {
             randomDict = "gmcu0"; // String Default
@@ -74,16 +73,24 @@ public class Solution implements Chromosome<Solution> {
             }
         }
         
-        for (int i = 0; i < (totalJam); i++) {
-            s.append(randomChar());
+        for (int i = 0; i < s.length; i++) {
+            s[i] = randomChar();
         }
         
-        return s.toString(); // return String Random
+        this.data = s;
     }
 
-    private static char randomChar() {
+    private char randomChar() {
         Random r = new Random();
 	return randomDict.charAt(r.nextInt(randomDict.length()));
+    }
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+	return "Solution [data=" + Arrays.toString(data) + "]";
     }
 
 }

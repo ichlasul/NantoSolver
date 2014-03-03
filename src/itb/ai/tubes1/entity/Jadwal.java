@@ -18,9 +18,9 @@ public class Jadwal {
     public static int JUMLAH_HARI = 7;
     
     /**
-     * Jumlah jam, default 10
+     * Jumlah jam, default 12
      */
-    public static int JUMLAH_JAM = 10;
+    public static int JUMLAH_JAM = 12;
   
     
     /**

@@ -38,7 +38,8 @@ public class Main {
 	
 	Validator.input = input;
 	for(int i=0;i<10;i++){
-	String test = Solution.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
+	Solution sol = new Solution();
+	sol.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
 	if(Validator.isValid(test)){
 		System.out.println("OKE");
 		System.out.println(test);
