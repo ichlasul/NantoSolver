@@ -205,4 +205,9 @@ public class Validator {
 
 	return s.toString(); // return String Random
     }
+    
+    public static void main (String[] argv) {
+	for (int i = 0; i < 10; i++)
+	    System.out.println(Validator.funcRandom(14,4,4));
+    }
 }
