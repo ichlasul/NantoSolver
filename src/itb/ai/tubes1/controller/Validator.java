@@ -1,11 +1,9 @@
 package itb.ai.tubes1.controller;
 
-import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.controller.ga.Fitness;
 import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Gymnasium;
-import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;

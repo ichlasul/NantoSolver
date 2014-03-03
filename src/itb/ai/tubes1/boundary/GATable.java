@@ -23,6 +23,7 @@ public class GATable {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					WindowUtilities.setNativeLookAndFeel();
@@ -61,6 +62,7 @@ public class GATable {
 		
 		JMenuItem mntmSolve = new JMenuItem("Solve!");
 		mntmSolve.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				try {
 					optionPreference.readFromFile();
@@ -80,6 +82,7 @@ public class GATable {
 		
 		JMenuItem mntmOption = new JMenuItem("Option...");
 		mntmOption.addActionListener(new ActionListener() {
+			@Override
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				OptionDialog optionDialog = new OptionDialog();

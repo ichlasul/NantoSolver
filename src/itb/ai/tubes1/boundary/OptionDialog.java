@@ -3,6 +3,7 @@ package itb.ai.tubes1.boundary;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
 
 import java.awt.Label;
 import java.awt.TextField;
@@ -37,7 +38,7 @@ public class OptionDialog extends JDialog {
 		try {			
 			WindowUtilities.setNativeLookAndFeel();			
 			OptionDialog dialog = new OptionDialog();
-			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -101,6 +102,7 @@ public class OptionDialog extends JDialog {
 		
 		Button pathKandidatBtn = new Button("...");
 		pathKandidatBtn.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int returnVal = fileChooser.showOpenDialog(OptionDialog.this);
 	            if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -114,6 +116,7 @@ public class OptionDialog extends JDialog {
 		
 		Button pathTempatBtn = new Button("...");
 		pathTempatBtn.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				int returnVal = fileChooser.showOpenDialog(OptionDialog.this);
 	            if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -127,6 +130,7 @@ public class OptionDialog extends JDialog {
 		
 		Button pathUmumBtn = new Button("...");
 		pathUmumBtn.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				int returnVal = fileChooser.showOpenDialog(OptionDialog.this);
 	            if (returnVal == JFileChooser.APPROVE_OPTION) {
@@ -140,6 +144,7 @@ public class OptionDialog extends JDialog {
 		
 		Button confirmBtn = new Button("OK");	
 		confirmBtn.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				try
 				{
@@ -165,6 +170,7 @@ public class OptionDialog extends JDialog {
 		
 		Button cancelBtn = new Button("Cancel");
 		cancelBtn.addActionListener(new ActionListener() {
+			@Override
 			public void actionPerformed(ActionEvent e) {				
 				dispose();
 			}
