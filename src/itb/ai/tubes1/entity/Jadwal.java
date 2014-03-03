@@ -13,9 +13,15 @@ public class Jadwal {
     public static int JUMLAH_MINGGU;
     
     /**
-     * Jumlah jam, default 2
+     * Jumlah hari, default 7
      */
-    public static int JUMLAH_JAM = 2;
+    public static int JUMLAH_HARI = 7;
+    
+    /**
+     * Jumlah jam, default 10
+     */
+    public static int JUMLAH_JAM = 10;
+  
     
     /**
      * Data array yang menyimpan jadwal

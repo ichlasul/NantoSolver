@@ -1,9 +1,11 @@
 package itb.ai.tubes1.controller;
 
+import itb.ai.tubes1.controller.ga.Chromosome;
+import itb.ai.tubes1.entity.Jadwal;
+
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-
-import com.lagodiuk.ga.Chromosome;
 
 /**
  * Solusi, berupa string dengan panjang tergantung jumlah jam
@@ -13,12 +15,12 @@ public class Solution implements Chromosome<Solution> {
     	
     private static final Random random = new Random();
 
-    public String data = new String();
+    public char[] data = new char[Jadwal.JUMLAH_MINGGU * Jadwal.JUMLAH_HARI *Jadwal.JUMLAH_JAM];
 
     @Override
     protected Solution clone() {
 	Solution clone = new Solution();
-	clone.data = this.data;
+	System.arraycopy(this.data, 0, clone.data, 0, this.data.length);
 	return clone;
     }
 	
@@ -29,10 +31,8 @@ public class Solution implements Chromosome<Solution> {
     public Solution mutate() {
 	Solution result = this.clone();
 	    
-	int index = random.nextInt(result.data.length());
-	char[] data = result.data.toCharArray();
-	data[index] = '0';
-	result.data = new String(data);
+	int index = random.nextInt(result.data.length);
+	result.data[index] = '0';
 	    
 	return result;
     }
@@ -43,10 +43,18 @@ public class Solution implements Chromosome<Solution> {
      * created using any of crossover strategy
      */
     @Override
-    public List<Solution> crossover(Solution anotherChromosome) {
-	
-	// TODO Auto-generated method stub
-	return null;
+    public List<Solution> crossover(Solution other) {
+	Solution thisClone = this.clone();
+	Solution otherClone = other.clone();
+
+	int index = random.nextInt(this.data.length - 1);
+	for (int i = index; i < this.data.length; i++) {
+	    char tmp = thisClone.data[i];
+	    thisClone.data[i] = otherClone.data[i];
+	    otherClone.data[i] = tmp;
+	}
+
+	return Arrays.asList(thisClone, otherClone);
     }
 
 }
