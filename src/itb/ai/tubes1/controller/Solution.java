@@ -2,6 +2,8 @@ package itb.ai.tubes1.controller;
 
 import java.util.List;
 
+import Demo.MyVector;
+
 import com.lagodiuk.ga.Chromosome;
 
 /**
@@ -12,6 +14,13 @@ public class Solution implements Chromosome<Solution> {
 
 	public String data = new String();
 
+	@Override
+	protected Solution clone() {
+	    Solution clone = new Solution();
+	    clone.data = this.data;
+	    return clone;
+	}
+	
 	/**
 	 * Returns clone of current chromosome, which is mutated a bit
 	 */
