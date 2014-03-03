@@ -2,38 +2,40 @@ package itb.ai.tubes1.entity;
 
 public class Tempat {
 
-    protected int energiBerkurang;
-    
-    protected Jadwal jadwal;
+	protected int energiBerkurang;
 
-    // ctor
-    public Tempat() {
-	energiBerkurang = 0;
-    }
+	protected Jadwal jadwal;
 
-    public Tempat(int _jumlahEnergi) {
-	energiBerkurang = _jumlahEnergi;
-    }
+	// ctor
+	public Tempat() {
+		energiBerkurang = 0;
+	}
 
-    public int getEnergi() {
-	return energiBerkurang;
-    }
-    public void setEnergi(int _jumlahEnergi) {
-	energiBerkurang = _jumlahEnergi;
-    }
-    
-    /**
-     * @return the jadwal
-     */
-    public Jadwal getJadwal() {
-        return jadwal;
-    }
+	public Tempat(int _jumlahEnergi) {
+		energiBerkurang = _jumlahEnergi;
+	}
 
-    /**
-     * @param jadwal the jadwal to set
-     */
-    public void setJadwal(Jadwal jadwal) {
-        this.jadwal = jadwal;
-    }
+	public int getEnergi() {
+		return energiBerkurang;
+	}
+
+	public void setEnergi(int _jumlahEnergi) {
+		energiBerkurang = _jumlahEnergi;
+	}
+
+	/**
+	 * @return the jadwal
+	 */
+	public Jadwal getJadwal() {
+		return jadwal;
+	}
+
+	/**
+	 * @param jadwal
+	 *            the jadwal to set
+	 */
+	public void setJadwal(Jadwal jadwal) {
+		this.jadwal = jadwal;
+	}
 
 }

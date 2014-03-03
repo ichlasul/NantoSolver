@@ -14,48 +14,49 @@ import java.util.ArrayList;
 
 public class Main {
 
-    private static Input input;
-    private static Nanto nanto;
-    private static ArrayList<Barang> listBarang;
-    private static ArrayList<Cewek> listCewek;
-    private static Mall mall;
-    private static Gymnasium gym;
-    private static Cafe cafe;
-    private static University univ;
+	private static Input input;
+	private static Nanto nanto;
+	private static ArrayList<Barang> listBarang;
+	private static ArrayList<Cewek> listCewek;
+	private static Mall mall;
+	private static Gymnasium gym;
+	private static Cafe cafe;
+	private static University univ;
 
-    public static void main(String[] args) {
-	//Mendapatkan input
-	input = new Input("txt/umum.txt", "txt/kandidat.txt", "txt/tempat.txt");
-	input.readFile();
-	nanto = input.getNanto();
-	listBarang = input.getListBarang();
-	listCewek = input.getListCewek();
-	mall = input.getMall();
-	gym = input.getGymnasium();
-	cafe = input.getCafe();
-	univ = input.getUniversity();
-	
-	
-	Validator val = new Validator();
-	for(int i=0;i<10;i++){
-	    Solution sol = new Solution();
-	    sol.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
-	    if(val.isValid(sol,nanto, listBarang, listCewek, mall, gym, cafe, univ)){
-        	System.out.println("OKE");
-        	System.out.println(sol.toString());
-	    }
+	public static void main(String[] args) {
+		// Mendapatkan input
+		input = new Input("txt/umum.txt", "txt/kandidat.txt", "txt/tempat.txt");
+		input.readFile();
+		nanto = input.getNanto();
+		listBarang = input.getListBarang();
+		listCewek = input.getListCewek();
+		mall = input.getMall();
+		gym = input.getGymnasium();
+		cafe = input.getCafe();
+		univ = input.getUniversity();
+
+		Validator val = new Validator();
+		for (int i = 0; i < 10; i++) {
+			Solution sol = new Solution();
+			sol.random(Jadwal.JUMLAH_MINGGU * 7, listCewek.size(),
+					listBarang.size());
+			if (val.isValid(sol, nanto, listBarang, listCewek, mall, gym, cafe,
+					univ)) {
+				System.out.println("OKE");
+				System.out.println(sol.toString());
+			}
+		}
+		// test print
+		System.out.println(nanto);
+		for (Barang barang : listBarang) {
+			System.out.println(barang);
+		}
+		for (Cewek cewek : listCewek) {
+			System.out.println(cewek);
+		}
+		System.out.println(mall);
+		System.out.println(gym);
+		System.out.println(cafe);
+		System.out.println(univ);
 	}
-	//test print
-	System.out.println(nanto);
-	for (Barang barang: listBarang) {
-	    System.out.println(barang);
-	}
-	for (Cewek cewek: listCewek) {
-	    System.out.println(cewek);
-	}
-	System.out.println(mall);
-	System.out.println(gym);
-	System.out.println(cafe);
-	System.out.println(univ);
-    }
 }

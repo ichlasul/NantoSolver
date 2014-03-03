@@ -12,7 +12,6 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JScrollPane;
 
-
 public class GATable {
 
 	private JFrame frmGeneticAlgorithmTable;
@@ -48,18 +47,18 @@ public class GATable {
 	 */
 	private void initialize() {
 		optionPreference = new OptionPreference();
-		
+
 		frmGeneticAlgorithmTable = new JFrame();
 		frmGeneticAlgorithmTable.setTitle("Genetic Algorithm Table");
 		frmGeneticAlgorithmTable.setBounds(100, 100, 640, 480);
 		frmGeneticAlgorithmTable.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		frmGeneticAlgorithmTable.setJMenuBar(menuBar);
-		
+
 		JMenu mnGeneticAlgotirhm = new JMenu("  Genetic Algorithm  ");
 		menuBar.add(mnGeneticAlgotirhm);
-		
+
 		JMenuItem mntmSolve = new JMenuItem("Solve!");
 		mntmSolve.addActionListener(new ActionListener() {
 			@Override
@@ -70,39 +69,40 @@ public class GATable {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				System.out.println(
-						optionPreference.getMaxLoop() + "\n" +
-						optionPreference.isManualLoop() + "\n" +
-						optionPreference.getPathKandidat() + "\n" +
-						optionPreference.getPathTempat() + "\n" +
-						optionPreference.getPathUmum());
+				System.out.println(optionPreference.getMaxLoop() + "\n"
+						+ optionPreference.isManualLoop() + "\n"
+						+ optionPreference.getPathKandidat() + "\n"
+						+ optionPreference.getPathTempat() + "\n"
+						+ optionPreference.getPathUmum());
 			}
 		});
 		mnGeneticAlgotirhm.add(mntmSolve);
-		
+
 		JMenuItem mntmOption = new JMenuItem("Option...");
 		mntmOption.addActionListener(new ActionListener() {
 			@Override
 			@SuppressWarnings("deprecation")
 			public void actionPerformed(ActionEvent arg0) {
 				OptionDialog optionDialog = new OptionDialog();
-				optionDialog.show();				
-			}	
+				optionDialog.show();
+			}
 		});
 		mnGeneticAlgotirhm.add(mntmOption);
-		
+
 		JMenu mnAbout = new JMenu("  About  ");
 		menuBar.add(mnAbout);
-		
+
 		JMenuItem mntmHelp = new JMenuItem("Help...");
 		mnAbout.add(mntmHelp);
-		
+
 		JMenuItem mntmAbout = new JMenuItem("About...");
 		mnAbout.add(mntmAbout);
-		frmGeneticAlgorithmTable.getContentPane().setLayout(new BorderLayout(0, 0));
-		
+		frmGeneticAlgorithmTable.getContentPane().setLayout(
+				new BorderLayout(0, 0));
+
 		JScrollPane scrollPane = new JScrollPane();
-		frmGeneticAlgorithmTable.getContentPane().add(scrollPane, BorderLayout.EAST);
+		frmGeneticAlgorithmTable.getContentPane().add(scrollPane,
+				BorderLayout.EAST);
 	}
 
 }

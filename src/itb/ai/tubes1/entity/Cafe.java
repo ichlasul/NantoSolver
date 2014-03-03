@@ -2,39 +2,42 @@ package itb.ai.tubes1.entity;
 
 public class Cafe extends Tempat {
 
-    private int charm;
-    
-    public Cafe() {
-	super();
-	energiBerkurang = 6;
-	charm = 2;
-    }
+	private int charm;
 
-    public Cafe(int _jumlahEnergi, int money) {
-	super(_jumlahEnergi);
-	this.charm = money;
-    }
+	public Cafe() {
+		super();
+		energiBerkurang = 6;
+		charm = 2;
+	}
 
-    /**
-     * @return the charm
-     */
-    public int getCharm() {
-        return charm;
-    }
+	public Cafe(int _jumlahEnergi, int money) {
+		super(_jumlahEnergi);
+		this.charm = money;
+	}
 
-    /**
-     * @param charm the charm to set
-     */
-    public void setCharm(int charm) {
-        this.charm = charm;
-    }
+	/**
+	 * @return the charm
+	 */
+	public int getCharm() {
+		return charm;
+	}
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-	return "Cafe [Charm=" + charm + ", EnergiBerkurang=" + energiBerkurang
-		+ ", Jadwal=" + jadwal + "]";
-    }
+	/**
+	 * @param charm
+	 *            the charm to set
+	 */
+	public void setCharm(int charm) {
+		this.charm = charm;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Cafe [Charm=" + charm + ", EnergiBerkurang=" + energiBerkurang
+				+ ", Jadwal=" + jadwal + "]";
+	}
 }
