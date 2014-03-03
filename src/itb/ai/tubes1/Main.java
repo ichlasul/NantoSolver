@@ -49,10 +49,10 @@ public class Main {
 	
 	private static void main1() {
 		Validator val = new Validator();
-		Solution sol = new Solution();
+		Solution sol = new Solution(listCewek.size(),
+				listBarang.size());
 		for (int i = 0; i < 10; i++) {
-			sol.random(Jadwal.JUMLAH_MINGGU * 7, listCewek.size(),
-					listBarang.size());
+			sol.randomSolution();
 			if (val.isValid(sol, nanto, listBarang, listCewek, mall, gym, cafe,
 					univ)) {
 				System.out.println("OKE");
@@ -74,7 +74,8 @@ public class Main {
 	}
 	
 	private static void main2() {
-		Population<Solution> population = null;
+		Population<Solution> population = new Solution(listCewek.size(),
+				listBarang.size()).randomPopulation();
 
 		Fitness<Solution, Integer> fitness = new Validator();
 
