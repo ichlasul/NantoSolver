@@ -1,3 +1,5 @@
+package itb.ai.tubes1;
+
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.controller.Solution;
 import itb.ai.tubes1.controller.Validator;
