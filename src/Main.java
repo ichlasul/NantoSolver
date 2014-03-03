@@ -36,11 +36,11 @@ public class Main {
 	univ = input.getUniversity();
 	
 	
-	Validator.input = input;
+	Validator val = new Validator();
 	for(int i=0;i<10;i++){
 	    Solution sol = new Solution();
 	    sol.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
-	    if(Validator.isValid(sol,nanto, listBarang, listCewek, mall, gym, cafe, univ)){
+	    if(val.isValid(sol,nanto, listBarang, listCewek, mall, gym, cafe, univ)){
         	System.out.println("OKE");
         	System.out.println(sol.toString());
 	    }

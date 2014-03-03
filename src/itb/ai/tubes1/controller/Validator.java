@@ -1,6 +1,7 @@
 package itb.ai.tubes1.controller;
 
 import itb.ai.tubes1.boundary.Input;
+import itb.ai.tubes1.controller.ga.Fitness;
 import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Gymnasium;
@@ -13,15 +14,9 @@ import itb.ai.tubes1.entity.University;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Validator {
+public class Validator implements Fitness<Solution, Integer> {
 
-    public static ListOfCewek loc = null;
-
-    public static Input input = null;
-
-    private static char act;
-
-    public static boolean isValid(Solution sol, Nanto nanto,
+    public boolean isValid(Solution sol, Nanto nanto,
     		ArrayList<Barang> listBarang,  ArrayList<Cewek> listCewek,
     		Mall mall, Gymnasium gym, Cafe cafe, University univ) {
 	String jadwal = Arrays.toString(sol.data);
@@ -136,37 +131,38 @@ public class Validator {
 
     }
 
-    public static int funcEnlightment(String stringValid) {
+    public int funcEnlightment(String stringValid) {
+    ArrayList<Cewek> loc = new ArrayList<Cewek>();
 	int en = 0;
 	char tempchar;
 	for (int i = 0; i < stringValid.length(); i++) {
 	    tempchar = stringValid.charAt(i);
 	    if (tempchar == '1') {
-		en += loc.getListOfCewek().get(1 - 1).getEnlightmentPerJam();
+		en += loc.get(1 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '2') {
-		en += loc.getListOfCewek().get(2 - 1).getEnlightmentPerJam();
+		en += loc.get(2 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '3') {
-		en += loc.getListOfCewek().get(3 - 1).getEnlightmentPerJam();
+		en += loc.get(3 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '4') {
-		en += loc.getListOfCewek().get(4 - 1).getEnlightmentPerJam();
+		en += loc.get(4 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '5') {
-		en += loc.getListOfCewek().get(5 - 1).getEnlightmentPerJam();
+		en += loc.get(5 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '6') {
-		en += loc.getListOfCewek().get(6 - 1).getEnlightmentPerJam();
+		en += loc.get(6 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '7') {
-		en += loc.getListOfCewek().get(7 - 1).getEnlightmentPerJam();
+		en += loc.get(7 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '8') {
-		en += loc.getListOfCewek().get(8 - 1).getEnlightmentPerJam();
+		en += loc.get(8 - 1).getEnlightmentPerJam();
 	    }
 	    if (tempchar == '9') {
-		en += loc.getListOfCewek().get(9 - 1).getEnlightmentPerJam();
+		en += loc.get(9 - 1).getEnlightmentPerJam();
 	    }
 
 	}
@@ -184,4 +180,10 @@ public class Validator {
 	}
 	return max;
     }
+
+	@Override
+	public Integer calculate(Solution chromosome) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
