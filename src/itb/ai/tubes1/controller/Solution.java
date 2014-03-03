@@ -14,6 +14,7 @@ import java.util.Random;
 public class Solution implements Chromosome<Solution> {
     	
     private static final Random random = new Random();
+    private static String randomDict = null;
 
     public char[] data = new char[Jadwal.JUMLAH_MINGGU * Jadwal.JUMLAH_HARI *Jadwal.JUMLAH_JAM];
 
@@ -58,25 +59,31 @@ public class Solution implements Chromosome<Solution> {
     }
     
     public static String random(int jmlHari, int jmlW, int jmlB) {
-        Random r = new Random();
         int totalJam = jmlHari * 12;
-        StringBuilder s = new StringBuilder(5 + jmlW + jmlB);
-        String alphabet = "gmcu0"; // String Default
+        StringBuilder s = new StringBuilder();
         
-        for (int i = 1; i < jmlW + 1; i++) {
-            alphabet = alphabet + i; // String Default + Jumlah wanita
-        }
-        
-        for (int j = 1; j < jmlB + 1; j++) {
-            alphabet = alphabet + (char) (64 + j); 
+        if (randomDict == null) {
+            randomDict = "gmcu0"; // String Default
+            
+            for (int i = 1; i < jmlW + 1; i++) {
+        	randomDict = randomDict + i; // String Default + Jumlah wanita
+            }
+            
+            for (int j = 1; j < jmlB + 1; j++) {
+        	randomDict = randomDict + (char) (64 + j); 
+            }
         }
         
         for (int i = 0; i < (totalJam); i++) {
-            char tempChar = alphabet.charAt(r.nextInt(alphabet.length()));
-            s.append(tempChar);
+            s.append(randomChar());
         }
         
         return s.toString(); // return String Random
+    }
+
+    private static char randomChar() {
+        Random r = new Random();
+	return randomDict.charAt(r.nextInt(randomDict.length()));
     }
 
 }
