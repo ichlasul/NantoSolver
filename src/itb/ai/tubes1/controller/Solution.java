@@ -16,8 +16,8 @@ public class Solution implements Chromosome<Solution>, Cloneable {
 	private static final Random random = new Random();
 	private String randomDict;
 	
-	private int JUMLAH_CEWEK;
-	private int JUMLAH_BARANG;
+	private int jumlahCewek;
+	private int jumlahBarang;
 
 	public char[] data;
 	
@@ -26,25 +26,28 @@ public class Solution implements Chromosome<Solution>, Cloneable {
 	 * @param jUMLAH_BARANG
 	 */
 	public Solution(int jUMLAH_CEWEK, int jUMLAH_BARANG) {
-		JUMLAH_CEWEK = jUMLAH_CEWEK;
-		JUMLAH_BARANG = jUMLAH_BARANG;
+		jumlahCewek = jUMLAH_CEWEK;
+		jumlahBarang = jUMLAH_BARANG;
 		data = new char[Jadwal.JUMLAH_MINGGU * Jadwal.JUMLAH_HARI
 		      			* Jadwal.JUMLAH_JAM];
 		
-		randomDict = "gmcu0"; // String Default
-
-		for (int i = 1; i < JUMLAH_CEWEK + 1; i++) {
-			randomDict = randomDict + i; // String Default + Jumlah wanita
-		}
-
-		for (int j = 1; j < JUMLAH_BARANG + 1; j++) {
-			randomDict = randomDict + (char) (64 + j);
+		if (randomDict == null ||
+				randomDict.length() < 5 + jumlahCewek + jumlahBarang) {
+			randomDict = "gmcu0"; // String Default
+	
+			for (int i = 1; i < jumlahCewek + 1; i++) {
+				randomDict = randomDict + i; // String Default + Jumlah wanita
+			}
+	
+			for (int j = 1; j < jumlahBarang + 1; j++) {
+				randomDict = randomDict + (char) (64 + j);
+			}
 		}
 	}
 
 	@Override
 	protected Solution clone() {
-		Solution clone = new Solution();
+		Solution clone = new Solution(jumlahCewek, jumlahBarang);
 		System.arraycopy(this.data, 0, clone.data, 0, this.data.length);
 		return clone;
 	}

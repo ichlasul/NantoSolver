@@ -30,8 +30,8 @@ public class Main {
 
 	public static void main(String[] args) {
 		initialize();
-		//main1();
-		main2();
+		main1();
+		//main2();
 	}
 
 	private static void initialize() {
