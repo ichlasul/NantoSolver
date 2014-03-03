@@ -6,6 +6,7 @@ import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Nanto;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Validator {
 
@@ -15,7 +16,8 @@ public class Validator {
 
     private static char act;
 
-    public static boolean isValid(String jadwal) {
+    public static boolean isValid(Solution sol) {
+	String jadwal = Arrays.toString(sol.data);
         Nanto nanto = new Nanto();
         nanto.setBrain(input.getNanto().getBrain());
         nanto.setCharm(input.getNanto().getCharm());

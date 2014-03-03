@@ -38,12 +38,12 @@ public class Main {
 	
 	Validator.input = input;
 	for(int i=0;i<10;i++){
-	Solution sol = new Solution();
-	sol.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
-	if(Validator.isValid(test)){
-		System.out.println("OKE");
-		System.out.println(test);
-	}
+	    Solution sol = new Solution();
+	    sol.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
+	    if(Validator.isValid(sol)){
+        	System.out.println("OKE");
+        	System.out.println(sol.toString());
+	    }
 	}
 	//test print
 	System.out.println(nanto);
