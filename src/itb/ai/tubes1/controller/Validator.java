@@ -1,6 +1,7 @@
 package itb.ai.tubes1.controller;
 
 import itb.ai.tubes1.boundary.Input;
+import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Nanto;
@@ -16,26 +17,20 @@ public class Validator {
 
     private static char act;
 
-    public static boolean isValid(Solution sol) {
+    public static boolean isValid(Solution sol, Nanto nanto, ArrayList<Barang> listBarang,  ArrayList<Cewek> listCewek) {
 	String jadwal = Arrays.toString(sol.data);
-        Nanto nanto = new Nanto();
-        nanto.setBrain(input.getNanto().getBrain());
-        nanto.setCharm(input.getNanto().getCharm());
-        nanto.setCurrentEnergi(input.getNanto().getCurrentEnergi());
-        nanto.setEnergiPerHari(input.getNanto().getEnergiPerHari());
-    	nanto.setStrength(input.getNanto().getStrength());
         boolean valid = true;
     	
     	System.out.println(jadwal);
         ArrayList<Integer> pembelianBarang = new ArrayList<>(); //list jumlah pembelian setiap barang
         //inisialisasi list jumlah pembelian barang
-        for (int j=0; j < input.getListBarang().size(); j++) {
+        for (int j=0; j < listBarang.size(); j++) {
             pembelianBarang.add(j, 0);
         }
         
         ArrayList<Integer> pertemuanCewek = new ArrayList<>(); //list jumlah jam bertemu setiap cewek
         //inisialisasi list jumlah jam bertemu dgn setiap kandidat
-        for (int j=0; j < input.getListCewek().size(); j++) {
+        for (int j=0; j < listCewek.size(); j++) {
             pertemuanCewek.add(j, 0);
         }
         
@@ -46,10 +41,10 @@ public class Validator {
 
     		if (i % 12 == 0) { 		//ganti hari
     			nanto.resetEnergi();  //mengembalikan energi nanto
-                        for (int j=0; j < input.getListBarang().size(); j++) { // mengembalikan jumlah pembelian barang jadi 0
+                        for (int j=0; j < listBarang.size(); j++) { // mengembalikan jumlah pembelian barang jadi 0
                             pembelianBarang.add(j, 0);
                         }
-                        for (int j = 0; j < input.getListCewek().size(); j++) { //mengembalikan seperti semula
+                        for (int j = 0; j < listCewek.size(); j++) { //mengembalikan seperti semula
                             pertemuanCewek.add(j, 0);
                         }
     		}
@@ -63,13 +58,13 @@ public class Validator {
     			if (Character.isDigit(act)) { 		//bertemu cewek
                             System.out.println("lewat");
                             int idxcewek = 0;
-                            for (int j = 0; j < input.getListCewek().size(); j++) {
-                                if (input.getListCewek().get(j).getNomor() == Character.getNumericValue(act)) {
+                            for (int j = 0; j < listCewek.size(); j++) {
+                                if (listCewek.get(j).getNomor() == Character.getNumericValue(act)) {
                                     idxcewek = j;
                                 }
                             }
                             
-                            Cewek cewek = input.getListCewek().get(idxcewek);
+                            Cewek cewek = listCewek.get(idxcewek);
                             
                             int nbKetemu = pertemuanCewek.get(idxcewek);
                             int maxKetemu = cewek.getMaksimalJamPerHari();
@@ -104,18 +99,18 @@ public class Validator {
     			else if (Character.isUpperCase(act)) { 		//membeli barang
     				       System.out.println("lewat3");
                            int idx = 0; 
-                           for (int j=0; j < input.getListBarang().size(); j++) {
-                                if (input.getListBarang().get(j).getKode() == act) {
+                           for (int j=0; j < listBarang.size(); j++) {
+                                if (listBarang.get(j).getKode() == act) {
                                     idx = j;
                                 }
                             } 
                            
                            int uangNanto = nanto.getUang();
-                           int maxPembelian = input.getListBarang().get(idx).getRestockPerHari();
-                           int harga = input.getListBarang().get(idx).getHarga();
+                           int maxPembelian = listBarang.get(idx).getRestockPerHari();
+                           int harga = listBarang.get(idx).getHarga();
                            int nbPembelian = pembelianBarang.get(idx);
                            if ((uangNanto >= harga) && (nbPembelian < maxPembelian)) {
-                               nanto.beliBarang(input.getListBarang().get(idx));
+                               nanto.beliBarang(listBarang.get(idx));
                                pembelianBarang.add(idx, pembelianBarang.get(idx)+1);
                            } else { return false;}
     			}  

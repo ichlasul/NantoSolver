@@ -40,7 +40,7 @@ public class Main {
 	for(int i=0;i<10;i++){
 	    Solution sol = new Solution();
 	    sol.random(Jadwal.JUMLAH_MINGGU*7, listCewek.size(), listBarang.size());
-	    if(Validator.isValid(sol)){
+	    if(Validator.isValid(sol,nanto, listBarang,listCewek)){
         	System.out.println("OKE");
         	System.out.println(sol.toString());
 	    }
