@@ -2,9 +2,13 @@ package itb.ai.tubes1.controller;
 
 import itb.ai.tubes1.boundary.Input;
 import itb.ai.tubes1.entity.Barang;
+import itb.ai.tubes1.entity.Cafe;
+import itb.ai.tubes1.entity.Gymnasium;
 import itb.ai.tubes1.entity.ListOfCewek;
 import itb.ai.tubes1.entity.Cewek;
+import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
+import itb.ai.tubes1.entity.University;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -17,7 +21,9 @@ public class Validator {
 
     private static char act;
 
-    public static boolean isValid(Solution sol, Nanto nanto, ArrayList<Barang> listBarang,  ArrayList<Cewek> listCewek) {
+    public static boolean isValid(Solution sol, Nanto nanto,
+    		ArrayList<Barang> listBarang,  ArrayList<Cewek> listCewek,
+    		Mall mall, Gymnasium gym, Cafe cafe, University univ) {
 	String jadwal = Arrays.toString(sol.data);
         boolean valid = true;
     	
@@ -77,21 +83,21 @@ public class Validator {
     			else if (Character.isLowerCase(act)) { 		//pergi ke suatu tempat
     				System.out.println("lewat2");
     				switch (act) {
-    					case 'u' :  if (input.getUniversity().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								nanto.addBrain(input.getUniversity().getBrain());
-                                                                nanto.subCurrentEnergi(input.getUniversity().getEnergi());
+    					case 'u' :  if (univ.getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								nanto.addBrain(univ.getBrain());
+                                                                nanto.subCurrentEnergi(univ.getEnergi());
                                                     } else { return false; }
-    					case 'g' : if (input.getGymnasium().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								nanto.addStrength(input.getGymnasium().getStrength());
-                                                                nanto.subCurrentEnergi(input.getGymnasium().getEnergi());
+    					case 'g' : if (gym.getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								nanto.addStrength(gym.getStrength());
+                                                                nanto.subCurrentEnergi(gym.getEnergi());
                                                     } else { return false; }
-    					case 'c' : if (input.getCafe().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								nanto.addCharm(input.getCafe().getCharm());
-                                                                nanto.subCurrentEnergi(input.getCafe().getEnergi());
+    					case 'c' : if (cafe.getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								nanto.addCharm(cafe.getCharm());
+                                                                nanto.subCurrentEnergi(cafe.getEnergi());
                                                     } else { return false; }
-    					case 'm' : if (input.getMall().getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
-    								nanto.addUang(input.getMall().getMoney());
-                                                                nanto.subCurrentEnergi(input.getMall().getEnergi());
+    					case 'm' : if (mall.getJadwal().getList().get(i)) {	//cek dijadwal buka atau ga
+    								nanto.addUang(mall.getMoney());
+                                                                nanto.subCurrentEnergi(mall.getEnergi());
                                                     } else { return false; }
     					default : 
     				}
