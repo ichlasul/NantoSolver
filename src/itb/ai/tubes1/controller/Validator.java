@@ -11,7 +11,6 @@ import itb.ai.tubes1.entity.Nanto;
 import itb.ai.tubes1.entity.University;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Validator implements Fitness<Solution, Integer> {
 
@@ -269,7 +268,9 @@ public class Validator implements Fitness<Solution, Integer> {
 			pertemuanCewek.add(j, 0);
 		}
 
-		for (int i = 0; i < jadwal.length(); i++) {
+		for (int id = 0; id < jadwal.length(); id++) {
+			//System.out.println("Looping " + id);
+			int i = id % Jadwal.JUMLAH_JAM;
 			char act;
 			act = jadwal.charAt(i);
 
@@ -287,11 +288,6 @@ public class Validator implements Fitness<Solution, Integer> {
 																// semula
 					pertemuanCewek.add(j, 0);
 				}
-			}
-			
-			//ganti minggu
-			if (i % (Jadwal.JUMLAH_HARI * Jadwal.JUMLAH_JAM) == 0 ) {
-				i = 0;
 			}
 
 			// cek energi nanto

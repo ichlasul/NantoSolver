@@ -89,8 +89,12 @@ public class Main {
 				new GeneticAlgorithm<Solution,Integer>(population, fitness);
 
 		addListener(ga);
+		
+		//System.out.println("DEBUG1");
 
 		ga.evolve(500);
+		
+		//System.out.println("DEBUG2");
 		
 	}
 
