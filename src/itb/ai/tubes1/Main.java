@@ -90,15 +90,10 @@ public class Main {
 				new GeneticAlgorithm<Solution,Integer>(population, fitness);
 
 		addListener(ga);
-		
-		//System.out.println("DEBUG1");
 
 		ga.evolve(512);
 		
 		new Output(new String(ga.getBest().data));
-		
-		//System.out.println("DEBUG2");
-		
 	}
 
 	private static void addListener(GeneticAlgorithm<Solution, Integer> ga) {
