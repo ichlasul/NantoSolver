@@ -1,6 +1,7 @@
 package itb.ai.tubes1;
 
 import itb.ai.tubes1.boundary.Input;
+import itb.ai.tubes1.boundary.Output;
 import itb.ai.tubes1.controller.Solution;
 import itb.ai.tubes1.controller.Validator;
 import itb.ai.tubes1.controller.ga.Fitness;
@@ -93,6 +94,8 @@ public class Main {
 		//System.out.println("DEBUG1");
 
 		ga.evolve(512);
+		
+		new Output(new String(ga.getBest().data));
 		
 		//System.out.println("DEBUG2");
 		
