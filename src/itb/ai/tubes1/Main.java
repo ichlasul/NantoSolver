@@ -10,7 +10,6 @@ import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Gymnasium;
-import itb.ai.tubes1.entity.Jadwal;
 import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
 import itb.ai.tubes1.entity.University;
@@ -48,7 +47,8 @@ public class Main {
 	}
 	
 	private static void main1() {
-		Validator val = new Validator();
+		Validator val = new Validator(nanto, listBarang, listCewek, mall, gym,
+				cafe, univ);
 		Solution sol = new Solution(listCewek.size(),
 				listBarang.size());
 		for (int i = 0; i < 10; i++) {
@@ -81,7 +81,8 @@ public class Main {
 			System.out.println(crs);
 		}
 
-		Fitness<Solution, Integer> fitness = new Validator();
+		Fitness<Solution, Integer> fitness = new Validator(nanto, listBarang,
+				listCewek, mall, gym, cafe, univ);
 
 		GeneticAlgorithm<Solution, Integer> ga =
 				new GeneticAlgorithm<Solution,Integer>(population, fitness);
