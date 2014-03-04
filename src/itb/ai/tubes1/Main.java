@@ -76,7 +76,7 @@ public class Main {
 	
 	private static void main2() {
 		Population<Solution> population = new Solution(listCewek.size(),
-				listBarang.size()).randomPopulation(8);
+				listBarang.size()).randomPopulation(256);
 		
 		for (Solution crs : population) {
 			System.out.println(crs);
@@ -92,7 +92,7 @@ public class Main {
 		
 		//System.out.println("DEBUG1");
 
-		ga.evolve(500);
+		ga.evolve(512);
 		
 		//System.out.println("DEBUG2");
 		

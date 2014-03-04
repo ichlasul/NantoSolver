@@ -277,6 +277,7 @@ public class Validator implements Fitness<Solution, Integer> {
 			// ganti hari
 			if (i % Jadwal.JUMLAH_JAM == 0) { 
 				nanto.resetEnergi(); // mengembalikan energi nanto
+				
 				for (int j = 0; j < listBarang.size(); j++) { // mengembalikan
 																// jumlah
 																// pembelian
