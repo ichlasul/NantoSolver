@@ -14,6 +14,36 @@ import java.util.Arrays;
 
 public class Validator implements Fitness<Solution, Integer> {
 
+	private Nanto nanto;
+	private ArrayList<Barang> listBarang;
+	private ArrayList<Cewek> listCewek;
+	private Mall mall;
+	private Gymnasium gym;
+	private Cafe cafe;
+	private University univ;
+	
+	/**
+	 * @param nanto
+	 * @param listBarang
+	 * @param listCewek
+	 * @param mall
+	 * @param gym
+	 * @param cafe
+	 * @param univ
+	 */
+	public Validator(Nanto nanto, ArrayList<Barang> listBarang,
+			ArrayList<Cewek> listCewek, Mall mall, Gymnasium gym, Cafe cafe,
+			University univ) {
+		super();
+		this.nanto = nanto;
+		this.listBarang = listBarang;
+		this.listCewek = listCewek;
+		this.mall = mall;
+		this.gym = gym;
+		this.cafe = cafe;
+		this.univ = univ;
+	}
+	
 	public boolean isValid(Solution sol, Nanto nanto,
 			ArrayList<Barang> listBarang, ArrayList<Cewek> listCewek,
 			Mall mall, Gymnasium gym, Cafe cafe, University univ) {
