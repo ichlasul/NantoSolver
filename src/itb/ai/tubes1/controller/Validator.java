@@ -5,6 +5,7 @@ import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.Cafe;
 import itb.ai.tubes1.entity.Cewek;
 import itb.ai.tubes1.entity.Gymnasium;
+import itb.ai.tubes1.entity.Jadwal;
 import itb.ai.tubes1.entity.Mall;
 import itb.ai.tubes1.entity.Nanto;
 import itb.ai.tubes1.entity.University;
@@ -47,7 +48,7 @@ public class Validator implements Fitness<Solution, Integer> {
 	public boolean isValid(Solution sol, Nanto nanto,
 			ArrayList<Barang> listBarang, ArrayList<Cewek> listCewek,
 			Mall mall, Gymnasium gym, Cafe cafe, University univ) {
-		String jadwal = Arrays.toString(sol.data);
+		String jadwal = new String(sol.data);
 		boolean valid = true;
 
 		System.out.println(jadwal);
@@ -249,9 +250,9 @@ public class Validator implements Fitness<Solution, Integer> {
 	public Integer calculate(Solution sol) {
 		int result = 0;
 		
-		String jadwal = Arrays.toString(sol.data);
+		String jadwal = new String(sol.data);
 
-		System.out.println(jadwal);
+		//System.out.println(jadwal);
 		ArrayList<Integer> pembelianBarang = new ArrayList<>(); // list jumlah
 																// pembelian
 																// setiap barang
@@ -272,7 +273,8 @@ public class Validator implements Fitness<Solution, Integer> {
 			char act;
 			act = jadwal.charAt(i);
 
-			if (i % 12 == 0) { // ganti hari
+			// ganti hari
+			if (i % Jadwal.JUMLAH_JAM == 0) { 
 				nanto.resetEnergi(); // mengembalikan energi nanto
 				for (int j = 0; j < listBarang.size(); j++) { // mengembalikan
 																// jumlah
@@ -285,6 +287,11 @@ public class Validator implements Fitness<Solution, Integer> {
 																// semula
 					pertemuanCewek.add(j, 0);
 				}
+			}
+			
+			//ganti minggu
+			if (i % (Jadwal.JUMLAH_HARI * Jadwal.JUMLAH_JAM) == 0 ) {
+				i = 0;
 			}
 
 			// cek energi nanto
