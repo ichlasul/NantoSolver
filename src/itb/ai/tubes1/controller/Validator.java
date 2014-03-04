@@ -294,7 +294,6 @@ public class Validator implements Fitness<Solution, Integer> {
 
 			if (act != '0') { // nanto beraktivitas
 				if (Character.isDigit(act)) { // bertemu cewek
-					System.out.println("lewat");
 					int idxcewek = 0;
 					for (int j = 0; j < listCewek.size(); j++) {
 						if (listCewek.get(j).getNomor() == Character
@@ -322,7 +321,6 @@ public class Validator implements Fitness<Solution, Integer> {
 
 				} else if (Character.isLowerCase(act)) { // pergi ke suatu
 															// tempat
-					System.out.println("lewat2");
 					switch (act) {
 					case 'u':
 						if (univ.getJadwal().getList().get(i)) { // cek dijadwal
@@ -362,7 +360,6 @@ public class Validator implements Fitness<Solution, Integer> {
 					default:
 					}
 				} else if (Character.isUpperCase(act)) { // membeli barang
-					System.out.println("lewat3");
 					int idx = 0;
 					for (int j = 0; j < listBarang.size(); j++) {
 						if (listBarang.get(j).getKode() == act) {

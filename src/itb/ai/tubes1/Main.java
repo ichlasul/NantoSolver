@@ -5,6 +5,7 @@ import itb.ai.tubes1.controller.Solution;
 import itb.ai.tubes1.controller.Validator;
 import itb.ai.tubes1.controller.ga.Fitness;
 import itb.ai.tubes1.controller.ga.GeneticAlgorithm;
+import itb.ai.tubes1.controller.ga.IterationListener;
 import itb.ai.tubes1.controller.ga.Population;
 import itb.ai.tubes1.entity.Barang;
 import itb.ai.tubes1.entity.Cafe;
@@ -87,9 +88,39 @@ public class Main {
 		GeneticAlgorithm<Solution, Integer> ga =
 				new GeneticAlgorithm<Solution,Integer>(population, fitness);
 
-		//addListener(ga);
+		addListener(ga);
 
 		ga.evolve(500);
 		
 	}
+
+	private static void addListener(GeneticAlgorithm<Solution, Integer> ga) {
+		System.out.println(String.format("%s\t%s\t%s", "iter", "fit",
+				"chromosome"));
+
+		// Lets add listener, which prints best chromosome after each iteration
+		ga.addIterationListener(new IterationListener<Solution, Integer>() {
+
+			private final double threshold = 1;
+
+			@Override
+			public void update(GeneticAlgorithm<Solution, Integer> ga) {
+
+				Solution best = ga.getBest();
+				int bestFit = ga.fitness(best);
+				int iteration = ga.getIteration();
+
+				// Listener prints best achieved solution
+				System.out.println(String.format("%s\t%s\t%s", iteration,
+						bestFit, best));
+
+				// If fitness is satisfying - we can stop Genetic algorithm
+				if (bestFit < this.threshold) {
+					ga.terminate();
+				}
+			}
+		});
+	}
+	
+	
 }
