@@ -2,40 +2,43 @@ package itb.ai.tubes1.entity;
 
 public class University extends Tempat {
 
-    private int brain;
-    
-    public University() {
-	super();
-	energiBerkurang = 15;
-	brain = 3;
-    }
+	private int brain;
 
-    public University(int _jumlahEnergi, int money) {
-	super(_jumlahEnergi);
-	this.brain = money;
-    }
+	public University() {
+		super();
+		energiBerkurang = 15;
+		brain = 3;
+	}
 
-    /**
-     * @return the brain
-     */
-    public int getBrain() {
-        return brain;
-    }
+	public University(int _jumlahEnergi, int money) {
+		super(_jumlahEnergi);
+		this.brain = money;
+	}
 
-    /**
-     * @param brain the brain to set
-     */
-    public void setBrain(int brain) {
-        this.brain = brain;
-    }
+	/**
+	 * @return the brain
+	 */
+	public int getBrain() {
+		return brain;
+	}
 
-    /* (non-Javadoc)
-     * @see java.lang.Object#toString()
-     */
-    @Override
-    public String toString() {
-	return "University [Brain=" + brain + ", EnergiBerkurang="
-		+ energiBerkurang + ",Jadwal=" + jadwal + "]";
-    }
+	/**
+	 * @param brain
+	 *            the brain to set
+	 */
+	public void setBrain(int brain) {
+		this.brain = brain;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "University [Brain=" + brain + ", EnergiBerkurang="
+				+ energiBerkurang + ",Jadwal=" + jadwal + "]";
+	}
 
 }

@@ -5,55 +5,55 @@ package com.AndrewHanes.ga;
  * change this template use File | Settings | File Templates.
  */
 public class FitnessCalculator {
-    private static byte[] solution;
+	private static byte[] solution;
 
-    public void setSolution(byte[] b) {
-	this.solution = b;
-    }
-
-    static public void setSolution(String str) {
-	solution = new byte[str.length()];
-	for (int i = 0; i < str.length(); ++i) {
-	    char c = str.charAt(i);
-	    if (c == '0' || c == '1') {
-		solution[i] = Byte.parseByte(c + "");
-	    } else {
-		solution[i] = 0;
-	    }
+	public void setSolution(byte[] b) {
+		this.solution = b;
 	}
-    }
 
-    public static int getFitness(Individual i) {
-	int fitness = 0;
-	for (int n = 0; n < solution.length; ++n) {
-	    if (i.getGene(n) == solution[n]) {
-		++fitness;
-	    }
+	static public void setSolution(String str) {
+		solution = new byte[str.length()];
+		for (int i = 0; i < str.length(); ++i) {
+			char c = str.charAt(i);
+			if (c == '0' || c == '1') {
+				solution[i] = Byte.parseByte(c + "");
+			} else {
+				solution[i] = 0;
+			}
+		}
 	}
-	return fitness;
-    }
 
-    public static int getMaxFitness() {
-	return solution.length;
-    }
-
-    public static byte[] getSolution() {
-	return solution;
-    }
-
-    public static void main(String[] args) {
-	FitnessCalculator c = new FitnessCalculator();
-	c.setSolution("1");
-	Population p = new Population(50);
-
-	int genCount = 0;
-	while (p.getFittest().getFitness() < c.getMaxFitness()) {
-	    genCount++;
-	    System.out.printf("Generation: %d\tFitness: %d\n", genCount, p
-		    .getFittest().getFitness());
-	    p = Evolver.evolvePopulation(p);
+	public static int getFitness(Individual i) {
+		int fitness = 0;
+		for (int n = 0; n < solution.length; ++n) {
+			if (i.getGene(n) == solution[n]) {
+				++fitness;
+			}
+		}
+		return fitness;
 	}
-	System.out.printf("Solution Found\nGeneration: %d\nGenes: %d\n",
-		genCount, p.getFittest().getFitness());
-    }
+
+	public static int getMaxFitness() {
+		return solution.length;
+	}
+
+	public static byte[] getSolution() {
+		return solution;
+	}
+
+	public static void main(String[] args) {
+		FitnessCalculator c = new FitnessCalculator();
+		c.setSolution("1");
+		Population p = new Population(50);
+
+		int genCount = 0;
+		while (p.getFittest().getFitness() < c.getMaxFitness()) {
+			genCount++;
+			System.out.printf("Generation: %d\tFitness: %d\n", genCount, p
+					.getFittest().getFitness());
+			p = Evolver.evolvePopulation(p);
+		}
+		System.out.printf("Solution Found\nGeneration: %d\nGenes: %d\n",
+				genCount, p.getFittest().getFitness());
+	}
 }

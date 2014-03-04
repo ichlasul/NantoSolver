@@ -5,56 +5,54 @@ package itb.ai.tubes1.entity;
  */
 public class Orang {
 
-    /**
-     * Strength yang dimiliki
-     */
-    protected int strength;
+	/**
+	 * Strength yang dimiliki
+	 */
+	protected int strength;
 
-    /**
-     * Charm yang dimiliki
-     */
-    protected int charm;
+	/**
+	 * Charm yang dimiliki
+	 */
+	protected int charm;
 
-    /**
-     * Brain yang dimiliki
-     */
-    protected int brain;
+	/**
+	 * Brain yang dimiliki
+	 */
+	protected int brain;
 
-    public Orang() {
-	strength = 0;
-	charm = 0;
-	brain = 0;
-    }
+	public Orang() {
+		strength = 0;
+		charm = 0;
+		brain = 0;
+	}
 
-    public Orang(int strength, int charm, int brain) {
-	this.strength = strength;
-	this.charm = charm;
-	this.brain = brain;
-    }
-    
+	public Orang(int strength, int charm, int brain) {
+		this.strength = strength;
+		this.charm = charm;
+		this.brain = brain;
+	}
 
+	public int getStrength() {
+		return strength;
+	}
 
-    public int getStrength() {
-	return strength;
-    }
+	public void setStrength(int strength) {
+		this.strength = strength;
+	}
 
-    public void setStrength(int strength) {
-	this.strength = strength;
-    }
+	public int getCharm() {
+		return charm;
+	}
 
-    public int getCharm() {
-	return charm;
-    }
+	public void setCharm(int charm) {
+		this.charm = charm;
+	}
 
-    public void setCharm(int charm) {
-	this.charm = charm;
-    }
+	public int getBrain() {
+		return brain;
+	}
 
-    public int getBrain() {
-	return brain;
-    }
-
-    public void setBrain(int brain) {
-	this.brain = brain;
-    }
+	public void setBrain(int brain) {
+		this.brain = brain;
+	}
 }
